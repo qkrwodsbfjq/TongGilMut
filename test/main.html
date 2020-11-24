@@ -15,6 +15,17 @@ var mapOptions = {
     center: new naver.maps.LatLng(37.2429501, 127.0800934),
     zoom: 15
 };
+    
+ var polyline = new naver.maps.Polyline({
+        path: polylinePath,
+        strokeColor: '#00CA00',
+        strokeOpacity: 0.8,
+        strokeWeight: 6,
+        zIndex: 2,
+        clickable: true,
+        map: map
+    });
+
 
 var map = new naver.maps.Map('map', mapOptions);
 </script>
