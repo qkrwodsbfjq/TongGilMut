@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>The Town HTML CSS Template</title>
+    <link rel="stylesheet" href="fontawesome-5.5/css/all.min.css" />
+    <link rel="stylesheet" href="slick/slick.css">
+    <link rel="stylesheet" href="slick/slick-theme.css">
+    <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/templatemo-style.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@1.0/nanumbarungothicsubset.css">
+		
+    <!--
+	The Town
+	https://templatemo.com/tm-525-the-town
+	-->
+  </head>
+  <body>    
+    <!-- Hero section -->
+    <section id="hero" class="text-white tm-font-big tm-parallax">
+      <video autoplay muted loop id ="hero-video">
+        <source src="img/main-video1.mp4" type="video/mp4">
+      </video>
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
+        <div class="container">   
+          <div class="tm-next">
+              <a href="#hero" class="navbar-brand">통길몇</a>
+          </div>             
+        </div>
+      </nav>
+      
+      <div class="text-center tm-hero-text-container">
+        <div class="tm-hero-text-container-inner">
+            <h2 class="tm-hero-title">통학생은 길에서 몇시간을 보냈을까?</h2>
+            <p class="tm-hero-subtitle">
+              매일 학교에 통학하시나요?<br>
+              뚜벅이님이 지금까지 몇시간을 길에서 보냈는지 보여드립니다.
+              <br>-통길몇-
+            </p>
+        </div>        
+      </div>
+
+      <div class="tm-next tm-intro-next">
+        <a href="#introduction" class="text-center tm-down-arrow-link">
+          <i class="fas fa-3x fa-caret-down tm-down-arrow">계산해보기</i>
+        </a>
+      </div>      
+    </section>
+
+
+
+    <!-- Contact -->
+    <section id="contact" class="tm-section-pad-top tm-parallax-2">
+      <div class="container tm-container-contact">
+        <div class="row">
+          <div class="container question-field">
+            <div class="question-text">어디에 사나요?</div>
+            <div class="question-input">
+              <label for="question-input-field"></label>
+              <input type ="text" id="question-input-field">
+            </div>
+          </div>
+          <div class="container question-field">
+            <div class="question-text">무슨학교에 다니나요?</div>
+            <div class="question-input">
+              <label for="question-input-field"></label>
+              <input type ="text" id="question-input-field">
+            </div>
+          </div>
+          <div class="container question-field">
+            <div class="question-text">몇학년인가요?</div>
+            <div class="question-input">
+              <select name="semester" id="semester">
+								<option value="sem-1-1">1학년 1학기</option>
+								<option value="sem-1-2">1학년 2학기</option>
+								<option value="sem-2-1">2학년 1학기</option>
+								<option value="sem-2-2">2학년 2학기</option>
+								<option value="sem-3-1">3학년 1학기</option>
+								<option value="sem-3-2">3학년 2학기</option>
+								<option value="sem-4-1">4학년 1학기</option>
+								<option value="sem-4-2">4학년 2학기</option>
+							</select>
+            </div>
+          </div>
+          <div class="container button-field">
+            <button class="button_calculate" type="button">
+              계산해보기
+            </button>
+          </div>
+        </div>
+        <div class=row id ="map-answer" style="margin-top:100px">
+					<div style="width:30%">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d203276.83209506533!2d126.94001771640623!3d37.24295009999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b44de2c7f3ddb%3A0x4c35e852f90f5520!2z6rK97Z2s64yA7ZWZ6rWQIOq1reygnOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1606155147622!5m2!1sko!2skr" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" right="20%"></iframe>
+					</div>
+					<div class="answer-field">
+						한번 갈 때마다 ...<br>
+						<span class="answer-highlight">n</span> 시간 <span class="answer-highlight">n</span> 분 <br>
+						<span class="answer-highlight">n</span> 원 <br>
+					</div>
+        </div>
+        <div class="row">
+          <div id="list-answer">
+            <div class="answer-field" id="answer-how-many-hours">
+              지금까지 <span class="answer-highlight">n</span>시간을 길에서 보내셨군요<br>
+              졸업까지 앞으로 <span class="answer-highlight">n</span>시간은 더 길에서 보내시면 됩니다.<br>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class = "answer-detail-question">
+            이 시간에 알바를 했다면?  <br>
+            교통비로 국밥  <br>
+          </div>
+          <div class="answer-detail-answer">
+            n원<br>
+            m그릇<br>
+          </div>
+        </div>
+      </div>
+      <footer class="text-center small tm-footer">
+          <p class="mb-0">
+            Copyright &copy; 2020 TongGilMut
+            
+            - Design: <a rel="nofollow" href="https://github.com/wjdwl001" class="tm-footer-link">Joung Jiwon</a>
+          </p>
+        </footer>
+    </section>
+    <script src="js/jquery-1.9.1.min.js"></script>     
+    <script src="slick/slick.min.js"></script>
+    <script src="magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.singlePageNav.min.js"></script>     
+    <script src="js/bootstrap.min.js"></script> 
+    <script>
+      $('button-calculate').click(function(){
+        
+      })
+
+      function getOffSet(){
+        var _offset = 450;
+        var windowHeight = window.innerHeight;
+
+        if(windowHeight > 500) {
+          _offset = 400;
+        } 
+        if(windowHeight > 680) {
+          _offset = 300
+        }
+        if(windowHeight > 830) {
+          _offset = 210;
+        }
+
+        return _offset;
+      }
+
+      function setParallaxPosition($doc, multiplier, $object){
+        var offset = getOffSet();
+        var from_top = $doc.scrollTop(),
+          bg_css = 'center ' +(multiplier * from_top - offset) + 'px';
+        $object.css({"background-position" : bg_css });
+      }
+
+      // Parallax function
+      // Adapted based on https://codepen.io/roborich/pen/wpAsm        
+      var background_image_parallax = function($object, multiplier, forceSet){
+        multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
+        multiplier = 1 - multiplier;
+        var $doc = $(document);
+        // $object.css({"background-attatchment" : "fixed"});
+
+        if(forceSet) {
+          setParallaxPosition($doc, multiplier, $object);
+        } else {
+          $(window).scroll(function(){          
+            setParallaxPosition($doc, multiplier, $object);
+          });
+        }
+      };
+
+      var background_image_parallax_2 = function($object, multiplier){
+        multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
+        multiplier = 1 - multiplier;
+        var $doc = $(document);
+        $object.css({"background-attachment" : "fixed"});
+        $(window).scroll(function(){
+          var firstTop = $object.offset().top,
+              pos = $(window).scrollTop(),
+              yPos = Math.round((multiplier * (firstTop - pos)) - 186);              
+
+          var bg_css = 'center ' + yPos + 'px';
+
+          $object.css({"background-position" : bg_css });
+        });
+      };
+      
+      $(function(){
+        // Hero Section - Background Parallax
+        background_image_parallax($(".tm-parallax"), 0.30, false);
+        background_image_parallax_2($("#contact"), 0.80);   
+        
+        // Handle window resize
+        window.addEventListener('resize', function(){
+          background_image_parallax($(".tm-parallax"), 0.30, true);
+        }, true);
+
+        // Detect window scroll and update navbar
+        $(window).scroll(function(e){          
+          if($(document).scrollTop() > 120) {
+            $('.tm-navbar').addClass("scroll");
+          } else {
+            $('.tm-navbar').removeClass("scroll");
+          }
+        });
+        
+        // Close mobile menu after click 
+        $('#tmNav a').on('click', function(){
+          $('.navbar-collapse').removeClass('show'); 
+        })
+
+        // Scroll to corresponding section with animation
+        $('#tmNav').singlePageNav();        
+        
+        // Add smooth scrolling to all links
+        // https://www.w3schools.com/howto/howto_css_smooth_scroll.asp
+        $("a").on('click', function(event) {
+          $('html, body').animate({
+            scrollTop: $("#contact").offset().top
+          }, 400);
+        });
+
+        // Pop up
+        $('.tm-gallery').magnificPopup({
+          delegate: 'a',
+          type: 'image',
+          gallery: { enabled: true }
+        });
+
+        // Gallery
+        $('.tm-gallery').slick({
+          dots: true,
+          infinite: false,
+          slidesToShow: 5,
+          slidesToScroll: 2,
+          responsive: [
+          {
+            breakpoint: 1199,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 991,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+        });
+      });
+    </script>
+  </body>
+</html>
