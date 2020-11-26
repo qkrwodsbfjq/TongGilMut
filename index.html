@@ -119,10 +119,10 @@ function updateBtn() {
 
 	var map = new naver.maps.Map('map', mapOptions);
 
-	var sx = addresses[start].x;
-	var sy = addresses[start].y;
-	var ex = addresses[end].x;
-	var ey = addresses[end].y;
+	var sx = addresses[start].x();
+	var sy = addresses[start].y();
+	var ex = addresses[end].x();
+	var ey = addresses[end].y();
 
 	function searchPubTransPathAJAX() {
 		var xhr = new XMLHttpRequest();
