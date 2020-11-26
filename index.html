@@ -92,7 +92,8 @@
             </div>
           </div>
           <div class="container button-field">
-            <input class = "button_calculate" type="button" value="계산하기">
+            <button class="button_calculate" type="button" value ="계산하기">
+            </button>
           </div>
         </div>
 <br>      
@@ -100,7 +101,7 @@
 <div id="map" style="width:700px;height:700px;"></div>
 
 <script>
-var btn = document.querySelector('input');
+var btn = document.querySelector('button');
 var txt = document.querySelector('p');
 
 btn.addEventListener('click', updateBtn);
@@ -110,7 +111,7 @@ function updateBtn() {
     btn.value = '다시 계산하기';
     txt.textContent = '기계가 켜졌습니다!';
   } else {
-    btn.value = '다시 ';
+    btn.value = '다시 계산하기';
     txt.textContent = '기계가 멈췄습니다.';
   }
 }
