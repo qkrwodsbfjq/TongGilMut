@@ -111,10 +111,14 @@
 
 	
 	
-	var sx = 127.0739547;
-	var sy = 37.2407701;
-	var ex = 126.921666;
-	var ey = 37.1308333;
+	var start, end;
+	start = document.getElementById("start").value.toUpperCase();
+        end = document.getElementById("end").value.toUpperCase();
+
+	var sx = addresses[start].x;
+	var sy = addresses[start].y;
+	var ex = addresses[end].x;
+	var ey = addresses[end].y;
 
 	function searchPubTransPathAJAX() {
 		var xhr = new XMLHttpRequest();
