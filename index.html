@@ -110,12 +110,7 @@ function updateBtn() {
     btn.textContent = '다시 계산하기';
     var start =  document.getElementById('start');
     var end = document.getElementById('end');
-  } else {
-    btn.textContent = '다시 계산하기';
-    var start =  document.getElementById('start');
-    var end = document.getElementById('end');
-  }
-}
+
 
 	var mapOptions = {
 		center: new naver.maps.LatLng(37.3595704, 127.105399),
@@ -216,6 +211,13 @@ function updateBtn() {
 			}
 		}
 	}
+	  
+  } else {
+    btn.textContent = '다시 계산하기';
+    var start =  document.getElementById('start');
+    var end = document.getElementById('end');
+  }
+}
 </script>
 	   
         <div class="row">
