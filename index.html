@@ -111,11 +111,12 @@
 	var map = new naver.maps.Map('map', mapOptions);
 
 	
-	var start;
+	var start = "경희대학교 국제캠퍼스";
+	var end = "서천동 729-11";
 	var sx = addresses[start].x;
-	var sy = 37.2407701;
-	var ex = 126.921666;
-	var ey = 37.1308333;
+	var sy = addresses[start].y;
+	var ex = addresses[end].x;
+	var ey = addresses[end].x;
 
 	function searchPubTransPathAJAX() {
 		var xhr = new XMLHttpRequest();
