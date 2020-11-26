@@ -12,27 +12,27 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/templatemo-style.css" />
 		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@1.0/nanumbarungothicsubset.css">
-		
+
     <!--
 	The Town
 	https://templatemo.com/tm-525-the-town
 	-->
   </head>
-  <body>    
+  <body>
     <!-- Hero section -->
     <section id="hero" class="text-white tm-font-big tm-parallax">
       <video autoplay muted loop id ="hero-video">
         <source src="img/main-video1.mp4" type="video/mp4">
       </video>
       <!-- Navigation -->
-      <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
-        <div class="container">   
+      <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">
+        <div class="container">
           <div class="tm-next">
               <a href="#hero" class="navbar-brand">뚜벅이</a>
-          </div>             
+          </div>
         </div>
       </nav>
-      
+
       <div class="text-center tm-hero-text-container">
         <div class="tm-hero-text-container-inner">
             <h2 class="tm-hero-title">통학생은 길에서 몇시간을 보냈을까?</h2>
@@ -41,14 +41,14 @@
               뚜벅이님이 지금까지 몇 시간을 길에서 보냈는지 보여드립니다.
               <br>-뚜벅이-
             </p>
-        </div>        
+        </div>
       </div>
 
       <div class="tm-next tm-intro-next">
         <a href="#introduction" class="text-center tm-down-arrow-link">
           <i class="fas fa-3x fa-caret-down tm-down-arrow">계산하기</i>
         </a>
-      </div>      
+      </div>
     </section>
 
 
@@ -61,16 +61,16 @@
             <div class="question-text">어디에 사나요?</div>
             <div class="question-input">
               <label for="question-input-field"></label>
-              <input type="text" id="start" placeholder="Type to Search">
+              <input type ="text" id="question-input-field">
             </div>
           </div>
           <div class="container question-field">
             <div class="question-text">무슨 학교에 다니나요?</div>
             <div class="question-input">
               <label for="question-input-field"></label>
-              <input type ="text" id="end" placeholder="Type to Search">
+              <input type ="text" id="question-input-field">
             </div>
-          </div>	
+          </div>
           <div class="container question-field">
             <div class="question-text">몇 학년인가요?</div>
             <div class="question-input">
@@ -93,25 +93,82 @@
           </div>
         </div>
 <br>
-	    
-      
+
+
+
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=rr4owjosjy&submodules=geocoder">
+var map = new naver.maps.Map("map", {
+        center: new naver.maps.LatLng(37.5666103, 126.9783882),
+        zoom: 16
+    }),
+    infoWindow = null;
+
+function initGeocoder() {
+    if (!map.isStyleMapReady) {
+        return;
+    }
+
+    var latlng = map.getCenter();
+    var utmk = naver.maps.TransCoord.fromLatLngToUTMK(latlng); // 위/경도 -> UTMK
+    var tm128 = naver.maps.TransCoord.fromUTMKToTM128(utmk);   // UTMK -> TM128
+    var naverCoord = naver.maps.TransCoord.fromTM128ToNaver(tm128); // TM128 -> NAVER
+
+    infoWindow = new naver.maps.InfoWindow({
+        content: ''
+    });
+
+    map.addListener('click', function(e) {
+        var latlng = e.coord,
+            utmk = naver.maps.TransCoord.fromLatLngToUTMK(latlng),
+            tm128 = naver.maps.TransCoord.fromUTMKToTM128(utmk),
+            naverCoord = naver.maps.TransCoord.fromTM128ToNaver(tm128);
+
+        utmk.x = parseFloat(utmk.x.toFixed(1));
+        utmk.y = parseFloat(utmk.y.toFixed(1));
+
+        infoWindow.setContent([
+            '<div style="padding:10px;width:380px;font-size:14px;line-height:20px;">',
+            '<strong>LatLng</strong> : '+ '좌 클릭 지점 위/경도 좌표' +'<br />',
+            '<strong>UTMK</strong> : '+ '위/경도 좌표를 UTMK 좌표로 변환한 값' +'<br />',
+            '<strong>TM128</strong> : '+ '변환된 UTMK 좌표를 TM128 좌표로 변환한 값' +'<br />',
+            '<strong>NAVER</strong> : '+ '변환된 TM128 좌표를 NAVER 좌표로 변환한 값' +'<br />',
+            '</div>'
+        ].join(''));
+
+        infoWindow.open(map, latlng);
+        console.log('LatLng: ' + latlng.toString());
+        console.log('UTMK: ' + utmk.toString());
+        console.log('TM128: ' + tm128.toString());
+        console.log('NAVER: ' + naverCoord.toString());
+    });
+}
+
+naver.maps.onJSContentLoaded = initGeocoder;
+naver.maps.Event.once(map, 'init_stylemap', initGeocoder);
+</script>
+
+
+
+
+
+
         <div id="map" style="width:700px;height:700px;"></div>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=rr4owjosjy"></script>
 
 <script>
- 
+
 	var mapOptions = {
 		center: new naver.maps.LatLng(37.3595704, 127.105399),
 		zoom: 10
 	};
 
 	var map = new naver.maps.Map('map', mapOptions);
-	
+
 	var sx = 127.0739547;
 	var sy = 37.2407701;
 	var ex = 126.921666;
 	var ey = 37.1308333;
-	
+
 	function searchPubTransPathAJAX() {
 		var xhr = new XMLHttpRequest();
 		//ODsay apiKey 입력
@@ -126,10 +183,10 @@
 			}
 		}
 	}
-	
+
 	//길찾기 API 호출
 	searchPubTransPathAJAX();
-	
+
 	function callMapObjApiAJAX(mabObj){
 		var xhr = new XMLHttpRequest();
 		//ODsay apiKey 입력
@@ -153,7 +210,7 @@
 			}
 		}
 	}
-	
+
 	// 지도위 마커 표시해주는 함수
 	function drawNaverMarker(x,y){
 		var marker = new naver.maps.Marker({
@@ -161,11 +218,11 @@
 		    map: map
 		});
 	}
-	
+
 	// 노선그래픽 데이터를 이용하여 지도위 폴리라인 그려주는 함수
 	function drawNaverPolyLine(data){
 		var lineArray;
-		
+
 		for(var i = 0 ; i < data.result.lane.length; i++){
 			for(var j=0 ; j <data.result.lane[i].section.length; j++){
 				lineArray = null;
@@ -173,7 +230,7 @@
 				for(var k=0 ; k < data.result.lane[i].section[j].graphPos.length; k++){
 					lineArray.push(new naver.maps.LatLng(data.result.lane[i].section[j].graphPos[k].y, data.result.lane[i].section[j].graphPos[k].x));
 				}
-				
+
 			//지하철결과의 경우 노선에 따른 라인색상 지정하는 부분 (1,2호선의 경우만 예로 들음)
 				if(data.result.lane[i].type == 1){
 					var polyline = new naver.maps.Polyline({
@@ -221,19 +278,19 @@
       <footer class="text-center small tm-footer">
           <p class="mb-0">
             Copyright &copy; 2020 TongGilMut
-            
+
             - Design: <a rel="nofollow" href="https://github.com/wjdwl001" class="tm-footer-link">Joung Jiwon</a>
           </p>
         </footer>
     </section>
-    <script src="js/jquery-1.9.1.min.js"></script>     
+    <script src="js/jquery-1.9.1.min.js"></script>
     <script src="slick/slick.min.js"></script>
     <script src="magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.singlePageNav.min.js"></script>     
-    <script src="js/bootstrap.min.js"></script> 
+    <script src="js/jquery.singlePageNav.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script>
       $('button-calculate').click(function(){
-        
+
       })
 
       function getOffSet(){
@@ -242,7 +299,7 @@
 
         if(windowHeight > 500) {
           _offset = 400;
-        } 
+        }
         if(windowHeight > 680) {
           _offset = 300
         }
@@ -261,7 +318,7 @@
       }
 
       // Parallax function
-      // Adapted based on https://codepen.io/roborich/pen/wpAsm        
+      // Adapted based on https://codepen.io/roborich/pen/wpAsm
       var background_image_parallax = function($object, multiplier, forceSet){
         multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
         multiplier = 1 - multiplier;
@@ -271,7 +328,7 @@
         if(forceSet) {
           setParallaxPosition($doc, multiplier, $object);
         } else {
-          $(window).scroll(function(){          
+          $(window).scroll(function(){
             setParallaxPosition($doc, multiplier, $object);
           });
         }
@@ -285,41 +342,41 @@
         $(window).scroll(function(){
           var firstTop = $object.offset().top,
               pos = $(window).scrollTop(),
-              yPos = Math.round((multiplier * (firstTop - pos)) - 186);              
+              yPos = Math.round((multiplier * (firstTop - pos)) - 186);
 
           var bg_css = 'center ' + yPos + 'px';
 
           $object.css({"background-position" : bg_css });
         });
       };
-      
+
       $(function(){
         // Hero Section - Background Parallax
         background_image_parallax($(".tm-parallax"), 0.30, false);
-        background_image_parallax_2($("#contact"), 0.80);   
-        
+        background_image_parallax_2($("#contact"), 0.80);
+
         // Handle window resize
         window.addEventListener('resize', function(){
           background_image_parallax($(".tm-parallax"), 0.30, true);
         }, true);
 
         // Detect window scroll and update navbar
-        $(window).scroll(function(e){          
+        $(window).scroll(function(e){
           if($(document).scrollTop() > 120) {
             $('.tm-navbar').addClass("scroll");
           } else {
             $('.tm-navbar').removeClass("scroll");
           }
         });
-        
-        // Close mobile menu after click 
+
+        // Close mobile menu after click
         $('#tmNav a').on('click', function(){
-          $('.navbar-collapse').removeClass('show'); 
+          $('.navbar-collapse').removeClass('show');
         })
 
         // Scroll to corresponding section with animation
-        $('#tmNav').singlePageNav();        
-        
+        $('#tmNav').singlePageNav();
+
         // Add smooth scrolling to all links
         // https://www.w3schools.com/howto/howto_css_smooth_scroll.asp
         $("a").on('click', function(event) {
