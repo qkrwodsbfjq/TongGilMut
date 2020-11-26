@@ -103,8 +103,6 @@
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=rr4owjosjy"></script>
 
 <script>
-	var start;
-	var sx = addresses[start].x;
 	var mapOptions = {
 		center: new naver.maps.LatLng(37.3595704, 127.105399),
 		zoom: 10
@@ -112,6 +110,9 @@
 
 	var map = new naver.maps.Map('map', mapOptions);
 
+	
+	var start;
+	var sx = addresses[start].x;
 	var sy = 37.2407701;
 	var ex = 126.921666;
 	var ey = 37.1308333;
