@@ -66,14 +66,14 @@
             <div class="question-text">어디에 사나요?</div>
             <div class="question-input">
               <label for="question-input-field"></label>
-              <input type ="text" id="question-input-field">
+              <input type ="text" id="question-input-field" class = "start">
             </div>
           </div>
           <div class="container question-field">
             <div class="question-text">무슨 학교에 다니나요?</div>
             <div class="question-input">
               <label for="question-input-field"></label>
-              <input type ="text" id="question-input-field">
+              <input type ="text" id="question-input-field" class = "end">
             </div>
           </div>
           <div class="container question-field">
@@ -102,25 +102,24 @@
 
 <script>
 var btn = document.querySelector('button');
-var txt = document.querySelector('p');
-
+var txt_s = document.querySelector('start');
+var txt_e = document.querySelector('end');
+var start;
+var end;
+	
 btn.addEventListener('click', updateBtn);
 
 function updateBtn() {
   if (btn.textContent === '계산하기') {
     btn.textContent = '다시 계산하기';
-    txt.textContent = '기계가 켜졌습니다!';
+    txt_s.textContent = start
+    txt_e.textContent = end
   } else {
     btn.textContent = '다시 계산하기';
-    txt.textContent = '기계가 멈췄습니다.';
+    txt_s.textContent = start
+    txt_e.textContent = end
   }
 }
-</script>
-
-	      
-	      
-	      
-<script>
 
 	var mapOptions = {
 		center: new naver.maps.LatLng(37.3595704, 127.105399),
