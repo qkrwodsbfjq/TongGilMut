@@ -113,16 +113,16 @@ function updateBtn() {
 
 
 	var mapOptions = {
-		center: new naver.maps.LatLng(37.3595704, 127.105399),
+		center: new naver.maps.LatLng(start,end),
 		zoom: 10
 	};
 
 	var map = new naver.maps.Map('map', mapOptions);
 
-	var sx = addresses[start].x();
-	var sy = addresses[start].y();
-	var ex = addresses[end].x();
-	var ey = addresses[end].y();
+	var sx = 127.0739547;
+	var sy = 37.2407701;
+	var ex = 126.921666;
+	var ey = 37.1308333;
 
 	function searchPubTransPathAJAX() {
 		var xhr = new XMLHttpRequest();
