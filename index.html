@@ -369,7 +369,7 @@ naver.maps.Event.once(map, 'init_stylemap', initGeocoder);
 	      
 	      
 
-<div id="map2" style="width:700px;height:700px;"></div>
+<div id="map" style="width:700px;height:700px;"></div>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=rr4owjosjy"></script>
 
 <script>
@@ -379,7 +379,7 @@ naver.maps.Event.once(map, 'init_stylemap', initGeocoder);
 		zoom: 10
 	};
 
-	var map2 = new naver.maps.Map('map2', mapOptions);
+	var map = new naver.maps.Map('map', mapOptions);
 
 	var sx = 127.0739547;
 	var sy = 37.2407701;
@@ -422,7 +422,7 @@ naver.maps.Event.once(map, 'init_stylemap', initGeocoder);
 				                new naver.maps.LatLng(resultJsonData.result.boundary.top, resultJsonData.result.boundary.left),
 				                new naver.maps.LatLng(resultJsonData.result.boundary.bottom, resultJsonData.result.boundary.right)
 				                );
-						map2.panToBounds(boundary);
+						map.panToBounds(boundary);
 				}
 			}
 		}
