@@ -282,6 +282,16 @@ a:focus {
   box-sizing:border-box;
   float:right;
 }
+.start{
+  width:25%;
+  box-sizing:border-box;
+  float:right;
+}
+.end{
+  width:25%;
+  box-sizing:border-box;
+  float:right;
+}
 #semester{
 	width: 200px;
 	padding: .2em .5em;
@@ -298,7 +308,6 @@ a:focus {
 select::-ms-expand {
     display: none;
 }
-출처: https://doolyit.tistory.com/126 [동해둘리의 IT Study]
 input{
   border-radius:5px;
 }
