@@ -71,7 +71,43 @@
 
     <!-- Contact -->
     <section id="contact" class="tm-section-pad-top tm-parallax-2">
-	      
+    <div class="container tm-container-contact">
+        <div class="row">
+          <div class="container question-field">
+            <div class="question-text">어디에 사나요?</div>
+            <div class="question-input">
+              <label for="question-input-field"></label>
+              <input type ="text" id="start">
+            </div>
+          </div>
+          <div class="container question-field">
+            <div class="question-text">무슨 학교에 다니나요?</div>
+            <div class="question-input">
+              <label for="question-input-field"></label>
+              <input type ="text" id="end">
+            </div>
+          </div>
+          <div class="container question-field">
+            <div class="question-text">몇 학년인가요?</div>
+            <div class="question-input">
+              <select name="semester" id="semester">
+								<option value="sem-1-1">1학년 1학기</option>
+								<option value="sem-1-2">1학년 2학기</option>
+								<option value="sem-2-1">2학년 1학기</option>
+								<option value="sem-2-2">2학년 2학기</option>
+								<option value="sem-3-1">3학년 1학기</option>
+								<option value="sem-3-2">3학년 2학기</option>
+								<option value="sem-4-1">4학년 1학기</option>
+								<option value="sem-4-2">4학년 2학기</option>
+							</select>
+            </div>
+          </div>
+          <div class="container button-field">
+            <button class="button_calculate" type="button">계산하기
+            </button>
+          </div>
+        </div>
+<br>     
 	      
 <form action="action.jsp" id="frm">
 	<div>어디에 사나요?<br/><input type ="text" id="start" value=""></div>
