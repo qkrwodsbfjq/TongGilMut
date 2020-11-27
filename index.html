@@ -22,6 +22,16 @@
 	The Town
 	https://templatemo.com/tm-525-the-town
 	-->
+	  
+  <script>
+window.onload = function(){
+	document.getElementById('btn').onclick = function(){
+		document.getElementById('frm').submit();
+		return false;
+	};
+};
+</script>
+  
   </head>
   <body>
     <!-- Hero section -->
@@ -96,9 +106,29 @@
             </button>
           </div>
         </div>
-<br>      
-<div id="map" style="width:700px;height:700px;"></div>
+<br>     
+	      
+	      
+<form action="action.jsp" id="frm">
+	<div class="question-text">어디에 사나요?
+	<div class="question-input">
+              <label for="question-input-field"></label>
+              <input type ="text" id="start" value="">
+            </div>
+          </div>
+	<div class="question-text">무슨 학교에 다니나요?
+	<div class="question-input">
+              <label for="question-input-field"></label>
+              <input type ="text" id="end" value="">
+            </div>
+          </div>
+	 <div class="container button-field">
+            <input type ="button" id="btn" value="계산하기">
+          </div>
+        </div>     
+</form>
 
+<div id="map" style="width:700px;height:700px;"></div>
 <script>
 var btn = document.querySelector('button');
 	
@@ -117,6 +147,7 @@ function updateBtn() {
 }
 
 
+	
 	var mapOptions = {
 		center: new naver.maps.LatLng(start,end),
 		zoom: 10
