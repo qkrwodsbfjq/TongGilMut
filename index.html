@@ -24,12 +24,13 @@
 	-->
 	  
   <script type= "text/css">
-window.onload = function(){
+	window.onload = function(){
 	document.getElementById('btn').onclick = function(){
 		document.getElementById('frm').submit();
 		return false;
 	};
 };
+	  
 </script>
   
   </head>
@@ -102,7 +103,7 @@ window.onload = function(){
             </div>
           </div>
           <div class="container button-field">
-            <button class="button_calculate" type="button">계산하기
+            <button class="button_calculate" type="button" onclick="updateBtn()">계산하기
             </button>
           </div>
         </div>
@@ -137,15 +138,8 @@ var btn = document.querySelector('button');
 btn.addEventListener('click', updateBtn);
 
 function updateBtn() {
-  if (btn.textContent === '계산하기') {
-    btn.textContent = '다시 계산하기';
     var start =  document.getElementById('start');
     var end = document.getElementById('end');
-  } else {
-    btn.textContent = '다시 계산하기';
-    var start =  document.getElementById('start');
-    var end = document.getElementById('end');
-  }
 }
 
 
