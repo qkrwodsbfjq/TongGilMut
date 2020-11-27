@@ -1,0 +1,213 @@
+
+   <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=0g0w4n495h&submodules=geocoder,panorama"></script>
+   <style type="text/css">
+    .buttons { position:absolute;top:0;left:0;z-index:1000;padding:8px; }
+    .buttons .control-btn { margin:0 5px 5px 0; }
+
+.control-btn {
+    margin: 0;
+    color: #555;
+    padding: 5px 10px;
+    background: #fff;
+    border: solid 1px #333;
+    cursor: pointer;
+    -webkit-border-radius: 0px;
+    outline: 0 none;
+    border-radius: 0px;
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.5) !important;
+}
+.control-on {
+    background-color: #2780E3;
+    color: #FFF;
+}
+   </style>
+
+      <tr>
+        <td valign="top" align="left" width="100%">
+           <div id="map" style="width:100%;height:600px;">
+           <div class="buttons"><input id="street" type="button" value="거리뷰" class="control-btn control-on" /></div>
+          </div>
+          </td>
+      </tr>
+      <tr><td valign="top" align="left" width="100%"><img src="/spacer.gif" width=150 height=10></td></tr>
+      <tr><td valign="top" align="left" width="100%">
+          <div id="pano" style="width:100%;height:600px;"></div>
+         <div id="panoBig" style='margin: 10 0px;text-align:center;'>
+               <span onClick="javascript:window.open('/shop/map_pano_open.php?product_address_ori=', 'panoBig');return false;" class='boxbtn' style='cursor: hand;'><font style='font-size: 14px;color:#3366cc;font-weight: bold;'>확대보기</font></span>
+         </div>
+      </td></tr>
+      <tr><td valign="top" align="left" width="100%"><img src="/spacer.gif" width=150 height=20></td></tr>
+   <script>
+var mapOptions = {
+ draggable: false,
+ scrollWheel: false,
+ mapTypeControl: true,
+ mapTypeControlOptions: {
+ style: naver.maps.MapTypeControlStyle.BUTTON,
+ position: naver.maps.Position.TOP_RIGHT
+ },
+ zoomControl: true,
+ zoomControlOptions: {
+ style: naver.maps.ZoomControlStyle.LARGE,
+ position: naver.maps.Position.LEFT_CENTER
+ },
+ scaleControl: true,
+ scaleControlOptions: {
+ position: naver.maps.Position.BOTTOM_RIGHT
+ },
+ logoControl: false,
+ logoControlOptions: {
+ position: naver.maps.Position.TOP_LEFT
+ },
+ mapDataControl: true,
+ mapDataControlOptions: {
+ position: naver.maps.Position.BOTTOM_LEFT
+ }
+};
+
+var map = new naver.maps.Map('map', mapOptions);
+
+      var myaddress = '';// 주소, 도로명 주소나 지번 주소만 가능 (건물명 불가)
+      var mapService = '';//지도보기
+      var mapStreet = '';//거리뷰보기
+
+naver.maps.onJSContentLoaded = function() {
+ naver.maps.Service.geocode({
+ address: myaddress
+ }, function(status, response) {
+ if (status !== naver.maps.Service.Status.OK || mapService == '0') {
+ document.getElementById('map').style.display = 'none';
+ document.getElementById('pano').style.display = 'none';
+ document.getElementById('panoBig').style.display = 'none';
+ // return alert(myaddress + '의 검색 결과가 없거나 기타 네트워크 에러');
+ } else if (mapStreet == '0') {
+        document.getElementById('pano').style.display = 'none';
+        document.getElementById('street').style.display = 'none';
+      document.getElementById('panoBig').style.display = 'none';
+
+        var result = response.result;
+        var myaddr = new naver.maps.Point(result.items[0].point.x, result.items[0].point.y);
+        map.setCenter(myaddr); // 검색된 좌표로 지도 이동
+
+        var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(result.items[0].point.y, result.items[0].point.x),
+            map: map,
+        });
+
+        var contentString = [
+            '<div class="iw_inner" style="padding:3px;">',
+            '   <h3></h3>',
+            '   <p></p>',
+            '   <p>TEL : <font style="color:#3366cc;font-weight:bold;"></font></p>',
+            '</div>'
+        ].join('');
+
+        var infowindow = new naver.maps.InfoWindow({
+            content: contentString
+        });
+
+        naver.maps.Event.addListener(marker, "click", function(e) {
+            if (infowindow.getMap()) {
+                infowindow.close();
+            } else {
+                infowindow.open(map, marker);
+            }
+        });
+
+        infowindow.open(map, marker);
+
+    } else {
+        var result = response.result;
+        // 검색 결과 갯수: result.total
+        // 첫번째 결과 결과 주소: result.items[0].address
+        // 첫번째 검색 결과 좌표: result.items[0].point.y, result.items[0].point.x
+        var myaddr = new naver.maps.Point(result.items[0].point.x, result.items[0].point.y);
+        map.setCenter(myaddr); // 검색된 좌표로 지도 이동
+
+        var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(result.items[0].point.y, result.items[0].point.x),
+            map: map,
+        });
+
+        var contentString = [
+            '<div class="iw_inner" style="padding:3px;">',
+            '   <h3></h3>',
+            '   <p></p>',
+            '   <p>TEL : <font style="color:#3366cc;font-weight:bold;"></font></p>',
+            '</div>'
+        ].join('');
+
+        var infowindow = new naver.maps.InfoWindow({
+            content: contentString
+        });
+
+        naver.maps.Event.addListener(marker, "click", function(e) {
+            if (infowindow.getMap()) {
+                infowindow.close();
+            } else {
+                infowindow.open(map, marker);
+            }
+        });
+
+        infowindow.open(map, marker);
+
+        var pano = null;
+        // 아이디 혹은 지도좌표로 파노라마를 표시할 수 있습니다.
+        pano = new naver.maps.Panorama("pano", {
+            position: new naver.maps.LatLng(result.items[0].point.y, result.items[0].point.x),
+            pov: {
+                pan: -133,
+                tilt: 0,
+                fov: 100
+            }
+        });
+
+        // 파노라마 위치가 갱신되었을 때 발생하는 이벤트를 받아 지도의 중심 위치를 갱신합니다.
+        naver.maps.Event.addListener(pano, 'pano_changed', function() {
+            var latlng = pano.getPosition();
+
+            if (!latlng.equals(map.getCenter())) {
+                map.setCenter(latlng);
+            }
+        });
+
+        // 거리뷰 레이어를 생성합니다.
+        var streetLayer = new naver.maps.StreetLayer();
+        streetLayer.setMap(null);
+
+        // 거리뷰 버튼에 이벤트를 바인딩합니다.
+        var btn = $('#street');
+        btn.on("click", function(e) {
+            e.preventDefault();
+
+            // 거리뷰 레이어가 지도 위에 있으면 거리뷰 레이어를 지도에서 제거하고,
+            // 거리뷰 레이어가 지도 위에 없으면 거리뷰 레이어를 지도에 추가합니다.
+            if (streetLayer.getMap()) {
+                streetLayer.setMap(null);
+            } else {
+                streetLayer.setMap(map);
+            }
+        });
+
+        // 거리뷰 레이어가 변경되면 발생하는 이벤트를 지도로부터 받아 버튼의 상태를 변경합니다.
+        naver.maps.Event.addListener(map, 'streetLayer_changed', function(streetLayer) {
+            if (streetLayer) {
+                btn.addClass('control-on');
+            } else {
+                btn.removeClass('control-on');
+            }
+        });
+
+        // 지도를 클릭했을 때 발생하는 이벤트를 받아 파노라마 위치를 갱신합니다. 이때 거리뷰 레이어가 있을 때만 갱신하도록 합니다.
+        naver.maps.Event.addListener(map, 'click', function(e) {
+            if (streetLayer.getMap()) {
+                var latlng = e.coord;
+                // 파노라마의 setPosition()은 해당 위치에서 가장 가까운 파노라마(검색 반경 300미터)를 자동으로 설정합니다.
+                pano.setPosition(latlng);
+            }
+        });
+    }
+});
+
+};
+   </script>
