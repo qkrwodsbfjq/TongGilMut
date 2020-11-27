@@ -22,17 +22,18 @@
 	The Town
 	https://templatemo.com/tm-525-the-town
 	-->
-	  
+	 
+// submit	  
   <script type= "text/css">
 	window.onload = function(){
 	document.getElementById('btn').onclick = function(){
 		document.getElementById('frm').submit();
 		return false;
 	};
-};
-	  
+};	  
 </script>
   
+	  
   </head>
   <body>
     <!-- Hero section -->
@@ -110,9 +111,19 @@
 <br>     
 	      
 	      
-<form action="action.jsp" id="frm">
-	<div>어디에 사나요?<br/><input type ="text" id="start" value=""></div>
-	<div>무슨 학교에 다니나요?<br/><input type ="text" id="start" value=""></div>
+<form action="action.jsp" id="frm" class="tm-section-pad-top tm-parallax-2">
+	<div class="container tm-container-contact">
+          <div class="row">
+            <div class="container question-field">
+		<div class="question-text">어디에 사나요?</div>
+		<div class="question-input">
+                  <label for="question-input-field"></label>
+		  <input type ="text" id="start" value=""></div>
+	    <div class="container question-field">
+		<div>무슨 학교에 다니나요?</div>
+		    <div class="question-input">
+             		 <label for="question-input-field"></label>
+		         <input type ="text" id="start" value=""></div></div>
 	<div class="container question-field">
             <div class="question-text">몇 학년인가요?</div>
             <div class="question-input">
@@ -132,18 +143,7 @@
 </form>
 
 <div id="map" style="width:700px;height:700px;"></div>
-<script>
-var btn = document.querySelector('button');
-	
-btn.addEventListener('click', updateBtn);
-
-function updateBtn() {
-    var start =  document.getElementById('start');
-    var end = document.getElementById('end');
-}
-
-
-	
+<script>	
 	var mapOptions = {
 		center: new naver.maps.LatLng(start,end),
 		zoom: 10
