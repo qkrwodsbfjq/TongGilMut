@@ -118,7 +118,6 @@ btn.addEventListener('click', updateBtn);
 
 function updateBtn() {
   var start = document.getElementById('start').value;
-  var end = document.getElementById('end').value;
   naver.maps.Service.geocode({
         address: start
     }, function(status, response) {
@@ -128,15 +127,10 @@ function updateBtn() {
     var result = response.result, // 검색 결과의 컨테이너
             items = result.items;
     return alert(result);
-
-    }
+  }
 }
 
 
-	var sx = 127.0739547;
-	var sy = 37.2407701;
-	var ex = 126.921666;
-	var ey = 37.1308333;
 
 	var mapOptions = {
 		center: new naver.maps.LatLng(start,end),
@@ -145,8 +139,12 @@ function updateBtn() {
 
 	var map = new naver.maps.Map('map', mapOptions);
 
+	var sx = 127.0739547;
+	var sy = 37.2407701;
+	var ex = 126.921666;
+	var ey = 37.1308333;
 
-	function searchPubTransPathAJAX(sx,sy,ex,ey) {
+	function searchPubTransPathAJAX() {
 		var xhr = new XMLHttpRequest();
 		//ODsay apiKey 입력
 		var url = "https://api.odsay.com/v1/api/searchPubTransPath?SX="+sx+"&SY="+sy+"&EX="+ex+"&EY="+ey+"&apiKey=nnsDQB1AWhpETO3HmMdDAw";
@@ -162,7 +160,8 @@ function updateBtn() {
 	}
 
 	//길찾기 API 호출
-	searchPubTransPathAJAX(sx,sy,ex,ey);
+	searchPubTransPathAJAX();
+
 	function callMapObjApiAJAX(mabObj){
 		var xhr = new XMLHttpRequest();
 		//ODsay apiKey 입력
@@ -232,9 +231,6 @@ function updateBtn() {
 			}
 		}
 	}
-	
-	
-}
 </script>
 
         <div class="row">
