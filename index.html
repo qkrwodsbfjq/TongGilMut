@@ -143,14 +143,14 @@ function updateBtn() {
     var end_x = result_2.items_2[0].point.x;
     var end_y = result_2.items_2[0].point.y;
   });
-	
+	return alert(start_y);
 	var sx = start_x;
 	var sy = start_y;
 	var ex = end_x;
 	var ey = end_y;
 	
 	var mapOptions = {
-		center: new naver.maps.LatLng(start,end),
+		center: new naver.maps.LatLng(37.2429501, 127.0800934),
 		zoom: 10
 	};
 
