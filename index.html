@@ -120,7 +120,6 @@ function updateBtn() {
   var start = document.getElementById('start').value;
   naver.maps.Service.geocode({
         address: start
-	     return alert(start);
 
     }, function(status, response) {
         if (status !== naver.maps.Service.Status.OK) {
@@ -128,7 +127,7 @@ function updateBtn() {
         }
     var result = response.result, // 검색 결과의 컨테이너
             items = result.items;
-    //return alert(start);
+    return alert(items);
   });
 }
 
