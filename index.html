@@ -141,7 +141,7 @@ function updateBtn() {
             items = result.items;
     var ex = console.log(items[2].x);
     var ey = console.log(items[2].y);
-
+    searchPubTransPathAJAX(sx,sy,ex,ey);
     }
 }
 
@@ -155,7 +155,7 @@ function updateBtn() {
 	var map = new naver.maps.Map('map', mapOptions);
 
 
-	function searchPubTransPathAJAX() {
+	function searchPubTransPathAJAX(sx,sy,ex,ey) {
 		var xhr = new XMLHttpRequest();
 		//ODsay apiKey 입력
 		var url = "https://api.odsay.com/v1/api/searchPubTransPath?SX="+sx+"&SY="+sy+"&EX="+ex+"&EY="+ey+"&apiKey=nnsDQB1AWhpETO3HmMdDAw";
@@ -171,7 +171,6 @@ function updateBtn() {
 	}
 
 	//길찾기 API 호출
-	searchPubTransPathAJAX();
 
 	function callMapObjApiAJAX(mabObj){
 		var xhr = new XMLHttpRequest();
