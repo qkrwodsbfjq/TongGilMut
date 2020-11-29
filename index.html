@@ -127,8 +127,22 @@ function updateBtn() {
         }
     var result = response.result, // 검색 결과의 컨테이너
             items = result.items;
-    console.log(items[2].x);
+    var sx = console.log(items[2].x);
+    var sy = console.log(items[2].y);
 
+    }
+  naver.maps.Service.geocode({
+        address: end
+    }, function(status, response) {
+        if (status !== naver.maps.Service.Status.OK) {
+            return alert('Something wrong!');
+        }
+    var result = response.result, // 검색 결과의 컨테이너
+            items = result.items;
+    var ex = console.log(items[2].x);
+    var ey = console.log(items[2].y);
+
+    }
 }
 
 
@@ -140,10 +154,6 @@ function updateBtn() {
 
 	var map = new naver.maps.Map('map', mapOptions);
 
-	var sx = 127.0739547;
-	var sy = 37.2407701;
-	var ex = 126.921666;
-	var ey = 37.1308333;
 
 	function searchPubTransPathAJAX() {
 		var xhr = new XMLHttpRequest();
