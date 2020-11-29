@@ -141,9 +141,8 @@ function updateBtn() {
             items = result.items;
     var ex = console.log(items[2].x);
     var ey = console.log(items[2].y);
-    searchPubTransPathAJAX(sx,sy,ex,ey);
     }
-}
+
 
 
 
@@ -171,7 +170,7 @@ function updateBtn() {
 	}
 
 	//길찾기 API 호출
-
+	searchPubTransPathAJAX(sx,sy,ex,ey);
 	function callMapObjApiAJAX(mabObj){
 		var xhr = new XMLHttpRequest();
 		//ODsay apiKey 입력
@@ -241,6 +240,9 @@ function updateBtn() {
 			}
 		}
 	}
+	
+	
+}
 </script>
 
         <div class="row">
