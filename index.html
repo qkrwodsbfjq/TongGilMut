@@ -128,8 +128,8 @@ function updateBtn() {
         }
     var result_1 = response.result, // 검색 결과의 컨테이너
             items_1 = result_1.items;
-    var sx = result_1.items_1[0].point.x;
-    var sy = result_1.items_1[0].point.y;
+    var start_x = result_1.items_1[0].point.x;
+    var start_y = result_1.items_1[0].point.y;
   });
   naver.maps.Service.geocode({
         address: end
@@ -140,9 +140,14 @@ function updateBtn() {
         }
     var result_2 = response.result, // 검색 결과의 컨테이너
             items_2 = result_2.items;
-    var ex = result_2.items_2[0].point.x;
-    var ey = result_2.items_2[0].point.y;
+    var end_x = result_2.items_2[0].point.x;
+    var end_y = result_2.items_2[0].point.y;
   });
+	
+	var sx = start_x;
+	var sy = start_y;
+	var ex = end_x;
+	var ey = end_y;
 	
 	var mapOptions = {
 		center: new naver.maps.LatLng(37.3595316, 127.1052133),
