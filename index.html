@@ -130,7 +130,7 @@ function updateBtn() {
             items = result.items;
     var sx = result.items[0].point.x;
     var sy = result.items[0].point.y;
-  });
+	  
   naver.maps.Service.geocode({
         address: end
 
@@ -142,10 +142,6 @@ function updateBtn() {
             items = result.items;
     var ex = result.items[0].point.x;
     var ey = result.items[0].point.y;
-    return ex;
-  });
-  return alert(naver.maps.Service.geocode.response);
-}
 	
 	
 	/*var sx = 127.0739547;
@@ -251,8 +247,9 @@ function updateBtn() {
 			}
 		}
 	}
-
-
+	});
+  });
+}
 </script>
 
         <div class="row">
