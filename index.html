@@ -126,10 +126,10 @@ function updateBtn() {
         if (status !== naver.maps.Service.Status.OK) {
             return alert('Something wrong!');
         }
-    var result = response.result, // 검색 결과의 컨테이너
-            items = result.items;
-    var sx = result.items[0].point.x;
-    var sy = result.items[0].point.y;
+    var result_1 = response.result, // 검색 결과의 컨테이너
+            items_1 = result_1.items;
+    var sx = result_1.items_1[0].point.x;
+    var sy = result_1.items_1[0].point.y;
   });
   naver.maps.Service.geocode({
         address: end
@@ -138,13 +138,22 @@ function updateBtn() {
         if (status !== naver.maps.Service.Status.OK) {
             return alert('Something wrong!');
         }
-    var result = response.result, // 검색 결과의 컨테이너
-            items = result.items;
-    var ex = result.items[0].point.x;
-    var ey = result.items[0].point.y;
+    var result_2 = response.result, // 검색 결과의 컨테이너
+            items_2 = result_2.items;
+    var ex = result_2.items_2[0].point.x;
+    var ey = result_2.items_2[0].point.y;
   });
 return alert(sx);
 }
+	
+	
+	
+	
+	var sx = 127.0739547;
+	var sy = 37.2407701;
+	var ex = 126.921666;
+	var ey = 37.1308333;
+	
 	var mapOptions = {
 		center: new naver.maps.LatLng(start,end),
 		zoom: 10
