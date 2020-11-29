@@ -119,10 +119,7 @@ btn.addEventListener('click', updateBtn);
 function updateBtn() {
   var start = document.getElementById('start').value;
   var end = document.getElementById('end').value;
-  var start_x;	
-  var start_y;
-  var end_x;
-  var start_y;
+  var start_x, start_y, end_x, start_y;
 	
 	
   naver.maps.Service.geocode({
@@ -148,10 +145,9 @@ function updateBtn() {
             items_2 = result_2.items;
     end_x = result_2.items_2[0].point.x;
     end_y = result_2.items_2[0].point.y;
+     return alert(end_y);
   });
 	
-	return alert(start_x);
-
 	var sx = 127.0739547;
 	var sy = 37.2407701;
 	var ex = 126.921666;
