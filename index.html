@@ -139,12 +139,14 @@ function updateBtn() {
         }
     var result = response.result, // 검색 결과의 컨테이너
             items = result.items;
-    var ex = console.log(items[2].x);
-    var ey = console.log(items[2].y);
+    return alert(result);
     }
 
 
-
+	var sx = 127.0739547;
+	var sy = 37.2407701;
+	var ex = 126.921666;
+	var ey = 37.1308333;
 
 	var mapOptions = {
 		center: new naver.maps.LatLng(start,end),
