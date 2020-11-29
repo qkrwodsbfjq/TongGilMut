@@ -119,7 +119,6 @@ btn.addEventListener('click', updateBtn);
 function updateBtn() {
   var start = document.getElementById('start').value;
   var end = document.getElementById('end').value;
-	
   naver.maps.Service.geocode({
         address: start
 
@@ -127,10 +126,10 @@ function updateBtn() {
         if (status !== naver.maps.Service.Status.OK) {
             return alert('Something wrong!');
         }
-    var result_1 = response.result, // 검색 결과의 컨테이너
-            items_1 = result_1.items;
-    var start_x = result_1.items_1[0].point.x;
-    var start_y = result_1.items_1[0].point.y;
+    var result = response.result, // 검색 결과의 컨테이너
+            items = result.items;
+    var sx = result.items[0].point.x;
+    var sy = result.items[0].point.y;
   });
   naver.maps.Service.geocode({
         address: end
@@ -139,13 +138,16 @@ function updateBtn() {
         if (status !== naver.maps.Service.Status.OK) {
             return alert('Something wrong!');
         }
-    var result_2 = response.result, // 검색 결과의 컨테이너
-            items_2 = result_2.items;
-    var end_x = result_2.items_2[0].point.x;
-    var end_y = result_2.items_2[0].point.y;
-     return alert(end_y);
+    var result = response.result, // 검색 결과의 컨테이너
+            items = result.items;
+    var ex = result.items[0].point.x;
+    var ey = result.items[0].point.y;
+
+    return alert(ey);
   });
-}	
+}
+	
+	
 	var sx = 127.0739547;
 	var sy = 37.2407701;
 	var ex = 126.921666;
