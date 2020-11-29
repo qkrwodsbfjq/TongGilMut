@@ -145,6 +145,15 @@ function updateBtn() {
   });
 }
 	
+	
+	var mapOptions = {
+		center: new naver.maps.LatLng(s_address,e_address),
+		zoom: 10
+	};
+
+	var map = new naver.maps.Map('map', mapOptions);
+
+
 
 	function searchPubTransPathAJAX() {
 		var xhr = new XMLHttpRequest();
