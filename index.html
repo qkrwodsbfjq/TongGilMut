@@ -144,13 +144,6 @@ function updateBtn() {
     var ey = result.items[0].point.y;
 	
 	
-	/*var sx = 127.0739547;
-	var sy = 37.2407701;
-	var ex = 126.921666;
-	var ey = 37.1308333;
-	*/
-	
-	
 	var mapOptions = {
 		center: new naver.maps.LatLng(start,end),
 		zoom: 10
@@ -247,6 +240,7 @@ function updateBtn() {
 			}
 		}
 	}
+	  return alert(data.result.totalTime)
 	});
   });
 }
