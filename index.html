@@ -125,8 +125,9 @@ function updateBtn() {
         if (status !== naver.maps.Service.Status.OK) {
             return alert('Something wrong!');
         }
-    
-    console.log(result.items[2].x);
+    var result = response.result, // 검색 결과의 컨테이너
+            items = result.items;
+    console.log(result.result.items[2].x);
 
 }
 
