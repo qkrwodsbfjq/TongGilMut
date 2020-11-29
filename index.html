@@ -127,20 +127,10 @@ function updateBtn() {
         }
     var result = response.result, // 검색 결과의 컨테이너
             items = result.items;
-    var sx = console.log(items[2].x);
-    var sy = console.log(items[2].y);
+    return alert(result);
 
     }
-  naver.maps.Service.geocode({
-        address: end
-    }, function(status, response) {
-        if (status !== naver.maps.Service.Status.OK) {
-            return alert('Something wrong!');
-        }
-    var result = response.result, // 검색 결과의 컨테이너
-            items = result.items;
-    return alert(result);
-    }
+}
 
 
 	var sx = 127.0739547;
