@@ -125,9 +125,16 @@ function updateBtn() {
         if (status !== naver.maps.Service.Status.OK) {
             return alert('Something wrong!');
         }
-    console.log(start.result[items].point.x);
-        
-    return alert(start);
+    
+    $(document).ready(function(){
+
+jsonTest();
+
+})
+
+function jsonTest(){
+console.log(start.result[items].point.x);
+}    
     });
 
 }
