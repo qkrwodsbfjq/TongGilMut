@@ -148,13 +148,6 @@ function updateBtn() {
     var ey = result.items[0].point.y;
 
 
-	/*var sx = 127.0739547;
-	var sy = 37.2407701;
-	var ex = 126.921666;
-	var ey = 37.1308333;
-	*/
-
-
 	var mapOptions = {
 		center: new naver.maps.LatLng(start,end),
 		zoom: 10
@@ -213,7 +206,12 @@ function updateBtn() {
 		    map: map
 		});
 	}
-
+	  
+	  
+	var distance = data.result.totalDistance()
+	document.getElementsById('distance')[0].innerHTML = distance; //distance에 총 이동거리 널기
+	  
+	  
 	// 노선그래픽 데이터를 이용하여 지도위 폴리라인 그려주는 함수
 	function drawNaverPolyLine(data){
 		var lineArray;
@@ -261,6 +259,7 @@ function updateBtn() {
           한번 갈 때마다 ...<br>
           <span class="answer-highlight">n</span> 시간 <span class="answer-highlight">n</span> 분 <br>
           <span class="answer-highlight">n</span> 원 <br>
+	  <span class="answer-highlight" id="distance"></span> km <br>	
         </div>
       </div>
       <div class="row">
