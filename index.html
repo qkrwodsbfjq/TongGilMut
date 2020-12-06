@@ -170,6 +170,7 @@ function updateBtn() {
 			callMapObjApiAJAX((JSON.parse(xhr.responseText))["result"]["path"][0].info.mapObj);
 			}
 		}
+		
 	}
 
 	//길찾기 API 호출
@@ -212,7 +213,7 @@ function updateBtn() {
 	function cal_totalDistance(){
 		var distance = data.result.totalDistance();
 		document.getElementsById('distance').innerHTML = string(distance); //distance에 총 이동거리 넣기
-		return alert(distance);
+		alert(distance);
 	//var distance = data.["result"]["path"][0].info.totalDistance();
 	}
 	  
