@@ -17,7 +17,8 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-	font-family:'NanumBarunGothic'
+  font-family:'NanumBarunGothic';
+  min-width: 1200px;
 }
 a {
   transition: all 0.3s ease;
@@ -230,6 +231,78 @@ a:focus {
   background: white;
 }
 
+/* Dropdown list*/
+select{
+  -webkit-appearance: none;  /* 네이티브 외형 감추기 */
+  -moz-appearance: none;
+  appearance: none;
+  display:none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: white;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #333; font-size:20px;
+  text-align: center;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color:white;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 /* Introduction */
 
 .tm-section-title {
@@ -254,34 +327,43 @@ a:focus {
 #contact {
   background-color: grey;
   color: white;
-  background-image: url(../img/the-town-bg-02.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 1500px;
+  min-height: 750px;
   position: relative;
   padding-bottom: 50px;
   padding-top: 160px;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 50px 50px;
+  grid-template-areas:
+    "question-home question-home question-home input-home input-home"
+    "question-school question-school question-school input-school input-school"
+    "question-grade question-grade question-grade input-grade input-grade";
+}
+
+.input-home { grid-area: input-home; }
+
+.question-grade { grid-area: question-grade; }
+
+.input-school { grid-area: input-school; }
+
+.question-home { grid-area: question-home; }
+
+.question-school { grid-area: question-school; }
+
+.input-grade { grid-area: input-grade; }
+
 .question-field{
-  display: flex;
-	justify-content: center;
-  width:100%;
-  height:50px;	
+  font-size: 35px;
+  text-shadow: 2px 2px 2px #333;
 }
-.question-text{
-  width:25%;
-  box-sizing: border-box;
-  float:left;
-  text-align:left;
-  padding-right:10px;
-	font-size:20px;
-}
-.question-input{
-  width:25%;
-  box-sizing:border-box;
-  float:right;
-}
+
+
 #semester{
 	width: 200px;
 	padding: .2em .5em;
@@ -298,52 +380,9 @@ a:focus {
 select::-ms-expand {
     display: none;
 }
+
 input{
   border-radius:5px;
-}
-.button_calculate{
-  width:15%;
-  position:relative;
-  left:44%;
-	margin-top:40px;
-	border:none;
-	border-radius:5px;
-}
-
-#map-answer{
-	display:flex;
-	justify-content: center;
-  border-top:2px solid white;
-  padding-top:50px;
-}
-.answer-field{
-	width:30%;
-	font-size :30px;
-	line-height:80px;
-}
-#answer-how-many-hours{
-  width:100%;
-  margin-bottom:100px;
-}
-.row{
-  display:flex;
-  justify-content: center;
-}
-#answer-detail{
-  display:flex;
-  justify-content: center;
-}
-.answer-detail-question,
-.answer-detail-answer{
-  width:49%;
-}
-.answer-detail-question{
-  text-align: right;
-  margin-right:10px;
-}
-.answer-highlight{
-	font-size:35px;
-	color:darkseagreen;
 }
 .tm-underline {
   border-top: 2px solid white;
@@ -409,9 +448,85 @@ iframe{
 	right:10%;
 }
 
+/*result*/
+#result{
+  margin-top : 200px;
+  background-color: grey;
+  color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 750px;
+  position: relative;
+  padding-bottom: 50px;
+  padding-top: 20px;
+}
+
+.answer-grid-container {
+  display: grid;
+  margin:30px 30px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 0.5fr 0.5fr 0.5fr;
+  gap: 10px 20px;
+  grid-template-areas:
+    ". map answer-field ."
+    "list-answer-field list-answer-field list-answer-field list-answer-field"
+    "detail-answer-field detail-answer-field detail-answer-field detail-answer-field"
+    "detail-answer-field detail-answer-field detail-answer-field detail-answer-field";
+}
+
+.map { grid-area: map; }
+
+.answer-field { 
+  grid-area: answer-field; 
+  font-size:35px;
+  text-shadow: 2px 2px 2px #333;
+}
+
+.list-answer-field { 
+  grid-area: list-answer-field;
+  font-size:35px;
+  text-shadow: 2px 2px 2px #333;
+  text-align : center;
+}
+
+.detail-answer-field {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px 30px;
+  grid-template-areas:
+    "salary-field dish-field everest-field earth-field";
+  grid-area: detail-answer-field;
+  height : 200px;
+}
+.detail-answer-box{
+  margin-top:10px;
+  display:table-cell;
+  background-color : darkgrey;
+  border-radius:6px;
+  font-size:20px;
+  padding : 10px 10px;
+  height:150px;
+}
+.detail-answer-small-box{
+  font-size:30px;
+  margin-top:20px;
+}
+.salary-field { grid-area: salary-field; }
+
+.dish-field { grid-area: dish-field; }
+
+.everest-field { grid-area: everest-field; }
+
+.earth-field { grid-area: earth-field; }
+
+.detail-answer-small-box{
+  transform:translateX(2.5%);
+  width : 95%;
+}
+
 
 .tm-footer {
-  position: absolute;
+  position: relative;
   bottom: 35px;
   left: 0;
   right: 0;
@@ -453,7 +568,7 @@ p {
   }
 
   .tm-container-contact {
-    max-width: 1063px;
+    max-width: 900px;
   }
 }
 
