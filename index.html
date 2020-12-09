@@ -123,7 +123,7 @@
             졸업까지 앞으로 <span class="answer-highlight" id="until">?</span>시간은 더 길에서 보내시면 됩니다.<br>
 
 
-	<div id="timev">time</div>
+	<div id="time">time</div>
 	<button onclick="innerHTML_time()">time</button>
 
 
@@ -252,6 +252,20 @@
     function updateBtn() {
       var start = document.getElementById('start').value;
       var end = document.getElementById('end').value;
+				     
+				     
+      var xhr = new XMLHttpRequest();
+        //ODsay apiKey 입력
+        var url = "https://api.odsay.com/v1/api/searchPubTransPath?SX="+sx+"&SY="+sy+"&EX="+ex+"&EY="+ey+"&apiKey=nnsDQB1AWhpETO3HmMdDAw";
+        xhr.open("GET", url, true);
+        xhr.send();
+      	var timev = (obj)["result"]["path"][0].info.totalTime;
+        var payv = (obj)["result"]["path"][0].info.payment;
+        var distancev = (obj)["result"]["path"][0].info.totalDistance;
+        console.log(timev); // 분단위?
+        console.log(payv);
+        console.log(distancev); // m
+					      
       naver.maps.Service.geocode({
             address: start
 
@@ -314,26 +328,14 @@
       searchPubTransPathAJAX();
 
       function innerHTML_time(){
-	var timev = document.getElementById("timev");
-	timev.innerHTML = (obj)["result"]["path"][0].info.totalTime;
-	}
-
-      function cal_tcd(){
 	var xhr = new XMLHttpRequest();
         //ODsay apiKey 입력
         var url = "https://api.odsay.com/v1/api/searchPubTransPath?SX="+sx+"&SY="+sy+"&EX="+ex+"&EY="+ey+"&apiKey=nnsDQB1AWhpETO3HmMdDAw";
         xhr.open("GET", url, true);
         xhr.send();
-      	var timev = (obj)["result"]["path"][0].info.totalTime;
-        var payv = (obj)["result"]["path"][0].info.payment;
-        var distancev = (obj)["result"]["path"][0].info.totalDistance;
-        console.log(timev); // 분단위?
-        console.log(payv);
-        console.log(distancev); // m
-
-      }
-
-
+	var timev = document.getElementById("time");
+	timev.innerHTML = (obj)["result"]["path"][0].info.totalTime;
+		}
 
       function callMapObjApiAJAX(mabObj){
         var xhr = new XMLHttpRequest();
