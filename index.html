@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/templatemo-style.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@1.0/nanumbarungothicsubset.css">
-
+	
   <script src="../../docs/js/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
     <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
@@ -24,9 +24,9 @@
 	The Town
 	https://templatemo.com/tm-525-the-town
 	-->
-
-
-
+	
+	
+	
   <script type= "text/css">
 	window.onload = function(){
 	document.getElementById('btn').onclick = function(){
@@ -36,7 +36,7 @@
 };
 
 </script>
-
+	
 </head>
 
 <body>
@@ -108,26 +108,19 @@
         </a>
       </div>
     </section>
-
+      
 
     <section id="result">
       <div class="answer-grid-container">
         <div class="map" id="map" style="width:500px;height:300px;""></div>
         <div class="answer-field" style="width:300px;"><br><br>한번 갈 때마다 ...<br>
-          <span class="answer-highlight">?</span> 시간
+          <span class="answer-highlight">?</span> 시간 
           <span class="answer-highlight">?</span> 분 <br>
         </div>
 
         <div class="list-answer-field">
           지금까지 <span class="answer-highlight" id="since">?</span>시간을 길에서 보내셨군요<br>
             졸업까지 앞으로 <span class="answer-highlight" id="until">?</span>시간은 더 길에서 보내시면 됩니다.<br>
-
-
-	<div id="time">time</div>
-	<button onclick="innerHTML_time()">time</button>
-
-
-
         </div>
         <div class="detail-answer-field">
           <div class="detail-answer-box salary-field">이 시간에 알바를 했다면?<br>
@@ -246,29 +239,15 @@
   </script>
   <script> //API
     var btn = document.querySelector('button');
-
+    
     btn.addEventListener('click', updateBtn);
-
+    
     function updateBtn() {
       var start = document.getElementById('start').value;
       var end = document.getElementById('end').value;
-				     
-				     
-      var xhr = new XMLHttpRequest();
-        //ODsay apiKey 입력
-        var url = "https://api.odsay.com/v1/api/searchPubTransPath?SX="+sx+"&SY="+sy+"&EX="+ex+"&EY="+ey+"&apiKey=nnsDQB1AWhpETO3HmMdDAw";
-        xhr.open("GET", url, true);
-        xhr.send();
-      	var timev = (obj)["result"]["path"][0].info.totalTime;
-        var payv = (obj)["result"]["path"][0].info.payment;
-        var distancev = (obj)["result"]["path"][0].info.totalDistance;
-        console.log(timev); // 분단위?
-        console.log(payv);
-        console.log(distancev); // m
-					      
       naver.maps.Service.geocode({
             address: start
-
+    
         }, function(status, response) {
             if (status !== naver.maps.Service.Status.OK) {
                 return alert('Something wrong!');
@@ -277,10 +256,10 @@
                 items = result.items;
         var sx = result.items[0].point.x;
         var sy = result.items[0].point.y;
-
+    
       naver.maps.Service.geocode({
             address: end
-
+    
         }, function(status, response) {
             if (status !== naver.maps.Service.Status.OK) {
                 return alert('Something wrong!');
@@ -289,24 +268,24 @@
                 items = result.items;
         var ex = result.items[0].point.x;
         var ey = result.items[0].point.y;
-
-
+    
+    
       /*var sx = 127.0739547;
       var sy = 37.2407701;
       var ex = 126.921666;
       var ey = 37.1308333;
       */
-
-
+    
+    
       var mapOptions = {
         center: new naver.maps.LatLng(start,end),
         zoom: 10
       };
-
+    
       var map = new naver.maps.Map('map', mapOptions);
-
-
-
+    
+    
+    
       function searchPubTransPathAJAX() {
         var xhr = new XMLHttpRequest();
         //ODsay apiKey 입력
@@ -318,25 +297,13 @@
           console.log( JSON.parse(xhr.responseText) ); // <- xhr.responseText 로 결과를 가져올 수 있음
           //노선그래픽 데이터 호출
           callMapObjApiAJAX((JSON.parse(xhr.responseText))["result"]["path"][0].info.mapObj);
-
-
           }
         }
       }
-
+    
       //길찾기 API 호출
       searchPubTransPathAJAX();
-
-      function innerHTML_time(){
-	var xhr = new XMLHttpRequest();
-        //ODsay apiKey 입력
-        var url = "https://api.odsay.com/v1/api/searchPubTransPath?SX="+sx+"&SY="+sy+"&EX="+ex+"&EY="+ey+"&apiKey=nnsDQB1AWhpETO3HmMdDAw";
-        xhr.open("GET", url, true);
-        xhr.send();
-	var timev = document.getElementById("time");
-	timev.innerHTML = (obj)["result"]["path"][0].info.totalTime;
-		}
-
+    
       function callMapObjApiAJAX(mabObj){
         var xhr = new XMLHttpRequest();
         //ODsay apiKey 입력
@@ -360,7 +327,7 @@
           }
         }
       }
-
+    
       // 지도위 마커 표시해주는 함수
       function drawNaverMarker(x,y){
         var marker = new naver.maps.Marker({
@@ -368,11 +335,11 @@
             map: map
         });
       }
-
+    
       // 노선그래픽 데이터를 이용하여 지도위 폴리라인 그려주는 함수
       function drawNaverPolyLine(data){
         var lineArray;
-
+    
         for(var i = 0 ; i < data.result.lane.length; i++){
           for(var j=0 ; j <data.result.lane[i].section.length; j++){
             lineArray = null;
@@ -380,7 +347,7 @@
             for(var k=0 ; k < data.result.lane[i].section[j].graphPos.length; k++){
               lineArray.push(new naver.maps.LatLng(data.result.lane[i].section[j].graphPos[k].y, data.result.lane[i].section[j].graphPos[k].x));
             }
-
+    
           //지하철결과의 경우 노선에 따른 라인색상 지정하는 부분 (1,2호선의 경우만 예로 들음)
             if(data.result.lane[i].type == 1){
               var polyline = new naver.maps.Polyline({
@@ -502,7 +469,7 @@
     }
 
     // Parallax function
-    // Adapted based on https://codepen.io/roborich/pen/wpAsm
+    // Adapted based on https://codepen.io/roborich/pen/wpAsm        
     var background_image_parallax = function ($object, multiplier, forceSet) {
       multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
       multiplier = 1 - multiplier;
@@ -553,7 +520,7 @@
         }
       });
 
-      // Close mobile menu after click
+      // Close mobile menu after click 
       $('#tmNav a').on('click', function () {
         $('.navbar-collapse').removeClass('show');
       })
@@ -620,7 +587,7 @@
        });
     });
   </script>
-
+  
 </body>
 
 </html>
