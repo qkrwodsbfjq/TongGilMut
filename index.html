@@ -121,6 +121,7 @@
         <div class="list-answer-field">
           지금까지 <span class="answer-highlight" id="since">?</span>시간을 길에서 보내셨군요<br>
             졸업까지 앞으로 <span class="answer-highlight" id="until">?</span>시간은 더 길에서 보내시면 됩니다.<br>
+	<button onclick="innerHTML_time()">time</button>
         </div>
         <div class="detail-answer-field">
           <div class="detail-answer-box salary-field">이 시간에 알바를 했다면?<br>
@@ -305,11 +306,18 @@
     
       //길찾기 API 호출
       searchPubTransPathAJAX();
-      cal_tcd();									   
-									   
-									   
-      function cal_tcd(){
+      function innerHTML_time(){
 		var xhr = new XMLHttpRequest();
+        //ODsay apiKey 입력
+        var url = "https://api.odsay.com/v1/api/searchPubTransPath?SX="+sx+"&SY="+sy+"&EX="+ex+"&EY="+ey+"&apiKey=nnsDQB1AWhpETO3HmMdDAw";
+        xhr.open("GET", url, true);
+        xhr.send();							   
+      	var timev = (obj)["result"]["path"][0].info.totalTime;
+	timev.innerHTML = timev;
+		}	
+				  
+      function cal_tcd(){
+	var xhr = new XMLHttpRequest();
         //ODsay apiKey 입력
         var url = "https://api.odsay.com/v1/api/searchPubTransPath?SX="+sx+"&SY="+sy+"&EX="+ex+"&EY="+ey+"&apiKey=nnsDQB1AWhpETO3HmMdDAw";
         xhr.open("GET", url, true);
@@ -322,6 +330,8 @@
         console.log(distancev); // m
 									   
       }
+				      
+					      
     
       function callMapObjApiAJAX(mabObj){
         var xhr = new XMLHttpRequest();
