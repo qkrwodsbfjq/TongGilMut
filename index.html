@@ -297,12 +297,31 @@
           console.log( JSON.parse(xhr.responseText) ); // <- xhr.responseText 로 결과를 가져올 수 있음
           //노선그래픽 데이터 호출
           callMapObjApiAJAX((JSON.parse(xhr.responseText))["result"]["path"][0].info.mapObj);
+									   
+									  
           }
         }
       }
     
       //길찾기 API 호출
       searchPubTransPathAJAX();
+      cal_tcd();									   
+									   
+									   
+      function cal_tcd(){
+		var xhr = new XMLHttpRequest();
+        //ODsay apiKey 입력
+        var url = "https://api.odsay.com/v1/api/searchPubTransPath?SX="+sx+"&SY="+sy+"&EX="+ex+"&EY="+ey+"&apiKey=nnsDQB1AWhpETO3HmMdDAw";
+        xhr.open("GET", url, true);
+        xhr.send();							   
+      	var timev = (obj)["result"]["path"][0].info.totalTime;
+        var payv = (obj)["result"]["path"][0].info.payment;
+        var distancev = (obj)["result"]["path"][0].info.totalDistance;
+        console.log(timev); // 분단위?
+        console.log(payv);
+        console.log(distancev); // m
+									   
+      }
     
       function callMapObjApiAJAX(mabObj){
         var xhr = new XMLHttpRequest();
