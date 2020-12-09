@@ -123,7 +123,7 @@
             졸업까지 앞으로 <span class="answer-highlight" id="until">?</span>시간은 더 길에서 보내시면 됩니다.<br>
 
 
-	<div id="time">time</div>
+	<div id="timev">time</div>
 	<button onclick="innerHTML_time()">time</button>
 
 
@@ -314,14 +314,9 @@
       searchPubTransPathAJAX();
 
       function innerHTML_time(){
-	var xhr = new XMLHttpRequest();
-        //ODsay apiKey 입력
-        var url = "https://api.odsay.com/v1/api/searchPubTransPath?SX="+sx+"&SY="+sy+"&EX="+ex+"&EY="+ey+"&apiKey=nnsDQB1AWhpETO3HmMdDAw";
-        xhr.open("GET", url, true);
-        xhr.send();
-	var timev = document.getElementById("time");
+	var timev = document.getElementById("timev");
 	timev.innerHTML = (obj)["result"]["path"][0].info.totalTime;
-		}
+	}
 
       function cal_tcd(){
 	var xhr = new XMLHttpRequest();
