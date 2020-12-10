@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,16 +14,21 @@
   <link rel="stylesheet" href="css/templatemo-style.css" />
   <link rel="stylesheet" type="text/css"
     href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@1.0/nanumbarungothicsubset.css">
+
   <script src="../../docs/js/jquery-1.9.1.js"></script>
   <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
   <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
   <script type="text/javascript"
     src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=rr4owjosjy&submodules=geocoder"></script>
   <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+
   <!--
 	The Town
 	https://templatemo.com/tm-525-the-town
 	-->
+
+
+
 <script type="text/css">
 	window.onload = function(){
 	document.getElementById('btn').onclick = function(){
@@ -31,7 +37,9 @@
 	};
 };
 </script>
+
 </head>
+
 <body>
   <!-- Hero section -->
   <section id="hero" class="text-white tm-font-big tm-parallax">
@@ -46,6 +54,7 @@
         </div>
       </div>
     </nav>
+
     <div class="text-center tm-hero-text-container">
       <div class="tm-hero-text-container-inner">
         <h2 class="tm-hero-title">통학생은 길에서 몇시간을 보냈을까?</h2>
@@ -56,12 +65,16 @@
         </p>
       </div>
     </div>
+
     <div class="tm-next tm-intro-next">
       <a href="#contact" class="button1 text-center tm-down-arrow-link">
         <i class="fas fa-3x fa-caret-down tm-down-arrow">계산해보기</i>
       </a>
     </div>
   </section>
+
+
+
   <!-- Contact -->
   <section id="contact" class="tm-section-pad-top tm-parallax-2">
     <div class="container tm-container-contact">
@@ -80,7 +93,7 @@
         </div>
         <div class="question-field question-grade">몇학년인가요?</div>
         <div class="input-grade"><div class="custom-select" style="width:208px; margin-right:40px">
-          <select>
+          <select name="semester" id="semester">
             <option value="0">1학년 1학기</option>
             <option value="sem-1-1">1학년 1학기</option>
             <option value="sem-1-2">1학년 2학기</option>
@@ -94,25 +107,26 @@
         </div></div>
       </div>
         <a href="#result" class="button2 text-center tm-down-arrow-link">
-          <button style= "color:black" class="fas fa-3x fa-caret-down tm-down-arrow" type="button" onclick="semester();return false;">계산해보기
-            </button>
+          <button style= "color:black" class="fas fa-3x fa-caret-down tm-down-arrow" type="button" onclick="semester()">계산해보기</button>
         </a>
       </div>
     </section>
       
+
     <section id="result">
       <div class="answer-grid-container">
-        <div class="map" id="map" style="width:500px;height:300px;"">
-          <img class="odsay" src="ODsay.png">
-        </div>
+        <div class="map" id="map" style="width:500px;height:300px;""></div>
+        
         <div class="answer-field" style="width:300px;"><br><br>한번 갈 때마다 ...<br>
           <span class="answer-highlight" id="hour">?</span> 시간 
           <span class="answer-highlight" id="min">?</span> 분 <br>
           <span class="answer-highlight" id="dist">?</span> km <br>
+          <img class="odsay" src="ODsay.png">
         </div>
+
         <div class="list-answer-field">
           지금까지 <span class="answer-highlight" id="since">?</span>시간을 길에서 보내셨군요<br>
-            졸업까지 앞으로 <span class="answer-highlight" id="until">?</span>시간은 더 길에서 보내시면 됩니다.<br>
+          졸업까지 앞으로 <span class="answer-highlight" id="until">?</span>시간은 더 길에서 보내시면 됩니다.<br>
         </div>
         <div class="detail-answer-field">
           <div class="detail-answer-box salary-field">이 시간에 알바를 했다면?<br>
@@ -138,10 +152,14 @@
     <footer class="text-center small tm-footer">
       <p class="mb-0">
         Copyright &copy; 2020 TongGilMut
+
         - Design: <a rel="nofollow" href="https://github.com/wjdwl001" class="tm-footer-link">Joung Jiwon</a>
       </p>
     </footer>
   </section>
+
+
+
   <script src="js/jquery-1.9.1.min.js"></script>
   <script src="slick/slick.min.js"></script>
   <script src="magnific-popup/jquery.magnific-popup.min.js"></script>
@@ -153,32 +171,36 @@
       new daum.Postcode({
           oncomplete: function(data) {
               // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
               // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
               // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
               var roadAddr = data.roadAddress; // 도로명 주소 변수
+
+
               // 우편번호와 주소 정보를 해당 필드에 넣는다.
               document.getElementById("home-address").value = roadAddr;
-              
-              // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-          
-              var guideTextBox = document.getElementById("guide");
-              // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-              if(data.autoRoadAddress) {
-                  var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
-                  guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
-                  guideTextBox.style.display = 'block';
-              } else if(data.autoJibunAddress) {
-                  var expJibunAddr = data.autoJibunAddress;
-                  guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
-                  guideTextBox.style.display = 'block';
-              } else {
-                  guideTextBox.innerHTML = '';
-                  guideTextBox.style.display = 'none';
-              }
+          }
+      }).open();
+    }
+  </script>
+  <script>
+    function school_execDaumPostcode() {
+      new daum.Postcode({
+          oncomplete: function(data) {
+              // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+              // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+              // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+              var roadAddr = data.roadAddress; // 도로명 주소 변수
+
+
+              // 우편번호와 주소 정보를 해당 필드에 넣는다.
+              document.getElementById("school-address").value = roadAddr;
           }
       }).open();
   }
   </script>
+
   <script> //dropdown list
     var x, i, j, l, ll, selElmnt, a, b, c;
     /*look for any elements with the class "custom-select":*/
@@ -261,12 +283,15 @@
   </script>
   <script> //API
     var btn = document.querySelector('button');
+
     btn.addEventListener('click', updateBtn);
+
     function updateBtn() {
-      var start = document.getElementById('start').value;
-      var end = document.getElementById('end').value;
+      var start = document.getElementById('home-address').value;
+      var end = document.getElementById('school-address').value;
       naver.maps.Service.geocode({
         address: start
+
       }, function (status, response) {
         if (status !== naver.maps.Service.Status.OK) {
           return alert('Something wrong!');
@@ -275,8 +300,10 @@
           items = result.items;
         var sx = result.items[0].point.x;
         var sy = result.items[0].point.y;
+
         naver.maps.Service.geocode({
           address: end
+
         }, function (status, response) {
           if (status !== naver.maps.Service.Status.OK) {
             return alert('Something wrong!');
@@ -285,16 +312,24 @@
             items = result.items;
           var ex = result.items[0].point.x;
           var ey = result.items[0].point.y;
+
+
           /*var sx = 127.0739547;
           var sy = 37.2407701;
           var ex = 126.921666;
           var ey = 37.1308333;
           */
+
+
           var mapOptions = {
             center: new naver.maps.LatLng(start, end),
             zoom: 10
           };
+
           var map = new naver.maps.Map('map', mapOptions);
+
+
+
           function searchPubTransPathAJAX() {
             var xhr = new XMLHttpRequest();
             //ODsay apiKey 입력
@@ -309,8 +344,10 @@
               }
             }
           }
+
           //길찾기 API 호출
           searchPubTransPathAJAX();
+
           function callMapObjApiAJAX(mabObj) {
             var xhr = new XMLHttpRequest();
             //ODsay apiKey 입력
@@ -334,6 +371,7 @@
               }
             }
           }
+
           // 지도위 마커 표시해주는 함수
           function drawNaverMarker(x, y) {
             var marker = new naver.maps.Marker({
@@ -341,9 +379,11 @@
               map: map
             });
           }
+
           // 노선그래픽 데이터를 이용하여 지도위 폴리라인 그려주는 함수
           function drawNaverPolyLine(data) {
             var lineArray;
+
             for (var i = 0; i < data.result.lane.length; i++) {
               for (var j = 0; j < data.result.lane[i].section.length; j++) {
                 lineArray = null;
@@ -351,6 +391,7 @@
                 for (var k = 0; k < data.result.lane[i].section[j].graphPos.length; k++) {
                   lineArray.push(new naver.maps.LatLng(data.result.lane[i].section[j].graphPos[k].y, data.result.lane[i].section[j].graphPos[k].x));
                 }
+
                 //지하철결과의 경우 노선에 따른 라인색상 지정하는 부분 (1,2호선의 경우만 예로 들음)
                 if (data.result.lane[i].type == 1) {
                   var polyline = new naver.maps.Polyline({
@@ -381,16 +422,19 @@
     }
   </script>
   <script> //값 계산
-    $('button-calculate').click(function () {
-    })
     function semester() {
       var target = document.getElementById("semester").value;
       var input = 0
+
       var since, until, salary, dish, everest, earth
+
       // 임시값 지정
+      var since = 0
+      var until = 0
       var time = 2
       var distance = 30000
       var pay = 100000
+
       function sum(sem) {
         since = sem * time * 150
         until = (8 - sem) * time * 150
@@ -399,6 +443,7 @@
         everest = Math.floor((sem * distance * 2) / 8846)
         earth = ((sem * distance * 2) / 40075000).toFixed(3)
       }
+
       if (target == 'sem-1-1') {
         input = 1
         sum(input)
@@ -431,16 +476,20 @@
         input = 8
         sum(input)
       }
-      document.getElementById("since").innerHTML = since
-      document.getElementById("until").innerHTML = until
-      document.getElementById("salary").innerHTML = salary
-      document.getElementById("dish").innerHTML = dish
+
+      document.getElementById("since").innerHTML = since.toLocaleString();
+      document.getElementById("until").innerHTML = until.toLocaleString();
+      document.getElementById("salary").innerHTML = salary.toLocaleString();
+      document.getElementById("dish").innerHTML = dish.toLocaleString();
       document.getElementById("everest").innerHTML = everest
       document.getElementById("earth").innerHTML = earth
     }
+
+
     function getOffSet() {
       var _offset = 450;
       var windowHeight = window.innerHeight;
+
       if (windowHeight > 500) {
         _offset = 400;
       }
@@ -450,14 +499,17 @@
       if (windowHeight > 830) {
         _offset = 210;
       }
+
       return _offset;
     }
+
     function setParallaxPosition($doc, multiplier, $object) {
       var offset = getOffSet();
       var from_top = $doc.scrollTop(),
         bg_css = 'center ' + (multiplier * from_top - offset) + 'px';
       $object.css({ "background-position": bg_css });
     }
+
     // Parallax function
     // Adapted based on https://codepen.io/roborich/pen/wpAsm        
     var background_image_parallax = function ($object, multiplier, forceSet) {
@@ -465,6 +517,7 @@
       multiplier = 1 - multiplier;
       var $doc = $(document);
       // $object.css({"background-attatchment" : "fixed"});
+
       if (forceSet) {
         setParallaxPosition($doc, multiplier, $object);
       } else {
@@ -473,6 +526,7 @@
         });
       }
     };
+
     var background_image_parallax_2 = function ($object, multiplier) {
       multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
       multiplier = 1 - multiplier;
@@ -482,18 +536,23 @@
         var firstTop = $object.offset().top,
           pos = $(window).scrollTop(),
           yPos = Math.round((multiplier * (firstTop - pos)) - 186);
+
         var bg_css = 'center ' + yPos + 'px';
+
         $object.css({ "background-position": bg_css });
       });
     };
+
     $(function () {
       // Hero Section - Background Parallax
       background_image_parallax($(".tm-parallax"), 0.30, false);
       background_image_parallax_2($("#contact"), 0.80)
+
       // Handle window resize
       window.addEventListener('resize', function () {
         background_image_parallax($(".tm-parallax"), 0.30, true);
       }, true);
+
       // Detect window scroll and update navbar
       $(window).scroll(function (e) {
         if ($(document).scrollTop() > 120) {
@@ -502,12 +561,15 @@
           $('.tm-navbar').removeClass("scroll");
         }
       });
+
       // Close mobile menu after click 
       $('#tmNav a').on('click', function () {
         $('.navbar-collapse').removeClass('show');
       })
+
       // Scroll to corresponding section with animation
       $('#tmNav').singlePageNav();
+
       // Add smooth scrolling to all links
       // https://www.w3schools.com/howto/howto_css_smooth_scroll.asp
       $(".button1").on('click', function (event) {
@@ -515,17 +577,20 @@
           scrollTop: $("#contact").offset().top
         }, 400);
       });
+
       $(".button2").on('click', function (event) {
         $('html, body').animate({
           scrollTop: $("#result").offset().top-10
         }, 400);
       });
+
       // Pop up
       $('.tm-gallery').magnificPopup({
         delegate: 'a',
         type: 'image',
         gallery: { enabled: true }
       });
+
       // Gallery
       $('.tm-gallery').slick({
         dots: true,
@@ -564,5 +629,7 @@
       });
     });
   </script>
+
 </body>
+
 </html>
