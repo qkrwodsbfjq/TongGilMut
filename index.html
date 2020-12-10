@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>The Town HTML CSS Template</title>
+  <title>TongGilMut</title>
   <link rel="stylesheet" href="fontawesome-5.5/css/all.min.css" />
   <link rel="stylesheet" href="slick/slick.css">
   <link rel="stylesheet" href="slick/slick-theme.css">
   <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/templatemo-style.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@1.0/nanumbarungothicsubset.css">
-
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@1.0/nanumbarungothicsubset.css">
   <script src="../../docs/js/jquery-1.9.1.js"></script>
-    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
-    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=rr4owjosjy&submodules=geocoder"></script>
-    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
-
+  <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+  <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+  <script type="text/javascript"
+    src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=rr4owjosjy&submodules=geocoder"></script>
+  <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
   <!--
 	The Town
 	https://templatemo.com/tm-525-the-town
 	-->
-
-
-
-  <script type= "text/css">
+  <script type="text/css">
 	window.onload = function(){
 	document.getElementById('btn').onclick = function(){
 		document.getElementById('frm').submit();
 		return false;
 	};
 };
-
 </script>
-
 </head>
-
 <body>
   <!-- Hero section -->
   <section id="hero" class="text-white tm-font-big tm-parallax">
@@ -53,7 +46,6 @@
         </div>
       </div>
     </nav>
-
     <div class="text-center tm-hero-text-container">
       <div class="tm-hero-text-container-inner">
         <h2 class="tm-hero-title">통학생은 길에서 몇시간을 보냈을까?</h2>
@@ -64,28 +56,24 @@
         </p>
       </div>
     </div>
-
     <div class="tm-next tm-intro-next">
       <a href="#contact" class="button1 text-center tm-down-arrow-link">
         <i class="fas fa-3x fa-caret-down tm-down-arrow">계산해보기</i>
       </a>
     </div>
   </section>
-
-
-
   <!-- Contact -->
-    <section id="contact" class="tm-section-pad-top tm-parallax-2">
+  <section id="contact" class="tm-section-pad-top tm-parallax-2">
     <div class="container tm-container-contact">
       <div class="grid-container">
         <div class="question-field question-home">어디에 사나요?</div>
         <div class="input-field input-home">
           <label for="question-input-field"></label>
-          <input type ="text" id="start"></div>
+          <input type="text" id="start"></div>
         <div class="question-field question-school">무슨 학교에 다니나요?</div>
         <div class="input-school">
           <label for="question-input-field"></label>
-          <input type ="text" id="end">
+          <input type="text" id="end">
         </div>
         <div class="question-field question-grade">몇학년인가요?</div>
         <div class="input-grade"><div class="custom-select" style="width:208px; margin-right:40px">
@@ -108,16 +96,17 @@
         </a>
       </div>
     </section>
-
-
+      
     <section id="result">
       <div class="answer-grid-container">
-        <div class="map" id="map" style="width:500px;height:300px;""></div>
-        <div class="answer-field" style="width:300px;"><br><br>한번 갈 때마다 ...<br>
-          <span class="answer-highlight">?</span> 시간
-          <span class="answer-highlight">?</span> 분 <br>
+        <div class="map" id="map" style="width:500px;height:300px;"">
+          <img class="odsay" src="ODsay.png">
         </div>
-
+        <div class="answer-field" style="width:300px;"><br><br>한번 갈 때마다 ...<br>
+          <span class="answer-highlight" id="hour">?</span> 시간 
+          <span class="answer-highlight" id="min">?</span> 분 <br>
+          <span class="answer-highlight" id="dist">?</span> km <br>
+        </div>
         <div class="list-answer-field">
           지금까지 <span class="answer-highlight" id="since">?</span>시간을 길에서 보내셨군요<br>
             졸업까지 앞으로 <span class="answer-highlight" id="until">?</span>시간은 더 길에서 보내시면 됩니다.<br>
@@ -141,17 +130,15 @@
           </div>
         </div>
       </div>
-      <footer class="text-center small tm-footer">
-        <p class="mb-0">
-          Copyright &copy; 2020 TongGilMut
-
-          - Design: <a rel="nofollow" href="https://github.com/wjdwl001" class="tm-footer-link">Joung Jiwon</a>
-        </p>
-      </footer>
-    </section>
-
-
-
+    </div>
+    
+    <footer class="text-center small tm-footer">
+      <p class="mb-0">
+        Copyright &copy; 2020 TongGilMut
+        - Design: <a rel="nofollow" href="https://github.com/wjdwl001" class="tm-footer-link">Joung Jiwon</a>
+      </p>
+    </footer>
+  </section>
   <script src="js/jquery-1.9.1.min.js"></script>
   <script src="slick/slick.min.js"></script>
   <script src="magnific-popup/jquery.magnific-popup.min.js"></script>
@@ -178,39 +165,39 @@
         create a new DIV that will act as an option item:*/
         c = document.createElement("DIV");
         c.innerHTML = selElmnt.options[j].innerHTML;
-        c.addEventListener("click", function(e) {
-            /*when an item is clicked, update the original select box,
-            and the selected item:*/
-            var y, i, k, s, h, sl, yl;
-            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-            sl = s.length;
-            h = this.parentNode.previousSibling;
-            for (i = 0; i < sl; i++) {
-              if (s.options[i].innerHTML == this.innerHTML) {
-                s.selectedIndex = i;
-                h.innerHTML = this.innerHTML;
-                y = this.parentNode.getElementsByClassName("same-as-selected");
-                yl = y.length;
-                for (k = 0; k < yl; k++) {
-                  y[k].removeAttribute("class");
-                }
-                this.setAttribute("class", "same-as-selected");
-                break;
+        c.addEventListener("click", function (e) {
+          /*when an item is clicked, update the original select box,
+          and the selected item:*/
+          var y, i, k, s, h, sl, yl;
+          s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+          sl = s.length;
+          h = this.parentNode.previousSibling;
+          for (i = 0; i < sl; i++) {
+            if (s.options[i].innerHTML == this.innerHTML) {
+              s.selectedIndex = i;
+              h.innerHTML = this.innerHTML;
+              y = this.parentNode.getElementsByClassName("same-as-selected");
+              yl = y.length;
+              for (k = 0; k < yl; k++) {
+                y[k].removeAttribute("class");
               }
+              this.setAttribute("class", "same-as-selected");
+              break;
             }
-            h.click();
+          }
+          h.click();
         });
         b.appendChild(c);
       }
       x[i].appendChild(b);
-      a.addEventListener("click", function(e) {
-          /*when the select box is clicked, close any other select boxes,
-          and open/close the current select box:*/
-          e.stopPropagation();
-          closeAllSelect(this);
-          this.nextSibling.classList.toggle("select-hide");
-          this.classList.toggle("select-arrow-active");
-        });
+      a.addEventListener("click", function (e) {
+        /*when the select box is clicked, close any other select boxes,
+        and open/close the current select box:*/
+        e.stopPropagation();
+        closeAllSelect(this);
+        this.nextSibling.classList.toggle("select-hide");
+        this.classList.toggle("select-arrow-active");
+      });
     }
     function closeAllSelect(elmnt) {
       /*a function that will close all select boxes in the document,
@@ -239,169 +226,144 @@
   </script>
   <script> //API
     var btn = document.querySelector('button');
-
     btn.addEventListener('click', updateBtn);
-
     function updateBtn() {
       var start = document.getElementById('start').value;
       var end = document.getElementById('end').value;
       naver.maps.Service.geocode({
-            address: start
-
-        }, function(status, response) {
-            if (status !== naver.maps.Service.Status.OK) {
-                return alert('Something wrong!');
-            }
+        address: start
+      }, function (status, response) {
+        if (status !== naver.maps.Service.Status.OK) {
+          return alert('Something wrong!');
+        }
         var result = response.result, // 검색 결과의 컨테이너
-                items = result.items;
+          items = result.items;
         var sx = result.items[0].point.x;
         var sy = result.items[0].point.y;
-
-      naver.maps.Service.geocode({
-            address: end
-
-        }, function(status, response) {
-            if (status !== naver.maps.Service.Status.OK) {
-                return alert('Something wrong!');
-            }
-        var result = response.result, // 검색 결과의 컨테이너
-                items = result.items;
-        var ex = result.items[0].point.x;
-        var ey = result.items[0].point.y;
-
-
-      /*var sx = 127.0739547;
-      var sy = 37.2407701;
-      var ex = 126.921666;
-      var ey = 37.1308333;
-      */
-
-
-      var mapOptions = {
-        center: new naver.maps.LatLng(start,end),
-        zoom: 10
-      };
-
-      var map = new naver.maps.Map('map', mapOptions);
-
-
-
-      function searchPubTransPathAJAX() {
-        var xhr = new XMLHttpRequest();
-        //ODsay apiKey 입력
-        var url = "https://api.odsay.com/v1/api/searchPubTransPath?SX="+sx+"&SY="+sy+"&EX="+ex+"&EY="+ey+"&apiKey=nnsDQB1AWhpETO3HmMdDAw";
-        xhr.open("GET", url, true);
-        xhr.send();
-        xhr.onreadystatechange = function() {
-          if (xhr.readyState == 4 && xhr.status == 200) {
-          console.log( JSON.parse(xhr.responseText) ); // <- xhr.responseText 로 결과를 가져올 수 있음
-          //노선그래픽 데이터 호출
-          callMapObjApiAJAX((JSON.parse(xhr.responseText))["result"]["path"][0].info.mapObj);
+        naver.maps.Service.geocode({
+          address: end
+        }, function (status, response) {
+          if (status !== naver.maps.Service.Status.OK) {
+            return alert('Something wrong!');
           }
-        }
-      }
-
-      //길찾기 API 호출
-      searchPubTransPathAJAX();
-
-      function callMapObjApiAJAX(mabObj){
-        var xhr = new XMLHttpRequest();
-        //ODsay apiKey 입력
-        var url = "https://api.odsay.com/v1/api/loadLane?mapObject=0:0@"+mabObj+"&apiKey=nnsDQB1AWhpETO3HmMdDAw";
-        xhr.open("GET", url, true);
-        xhr.send();
-        xhr.onreadystatechange = function() {
-          if (xhr.readyState == 4 && xhr.status == 200) {
-            var resultJsonData = JSON.parse(xhr.responseText);
-            drawNaverMarker(sx,sy);					// 출발지 마커 표시
-            drawNaverMarker(ex,ey);					// 도착지 마커 표시
-            drawNaverPolyLine(resultJsonData);		// 노선그래픽데이터 지도위 표시
-            // boundary 데이터가 있을경우, 해당 boundary로 지도이동
-            if(resultJsonData.result.boundary){
-                var boundary = new naver.maps.LatLngBounds(
-                            new naver.maps.LatLng(resultJsonData.result.boundary.top, resultJsonData.result.boundary.left),
-                            new naver.maps.LatLng(resultJsonData.result.boundary.bottom, resultJsonData.result.boundary.right)
-                            );
-                map.panToBounds(boundary);
+          var result = response.result, // 검색 결과의 컨테이너
+            items = result.items;
+          var ex = result.items[0].point.x;
+          var ey = result.items[0].point.y;
+          /*var sx = 127.0739547;
+          var sy = 37.2407701;
+          var ex = 126.921666;
+          var ey = 37.1308333;
+          */
+          var mapOptions = {
+            center: new naver.maps.LatLng(start, end),
+            zoom: 10
+          };
+          var map = new naver.maps.Map('map', mapOptions);
+          function searchPubTransPathAJAX() {
+            var xhr = new XMLHttpRequest();
+            //ODsay apiKey 입력
+            var url = "https://api.odsay.com/v1/api/searchPubTransPath?SX=" + sx + "&SY=" + sy + "&EX=" + ex + "&EY=" + ey + "&apiKey=nnsDQB1AWhpETO3HmMdDAw";
+            xhr.open("GET", url, true);
+            xhr.send();
+            xhr.onreadystatechange = function () {
+              if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(JSON.parse(xhr.responseText)); // <- xhr.responseText 로 결과를 가져올 수 있음
+                //노선그래픽 데이터 호출
+                callMapObjApiAJAX((JSON.parse(xhr.responseText))["result"]["path"][0].info.mapObj);
+              }
             }
           }
-        }
-      }
-
-      // 지도위 마커 표시해주는 함수
-      function drawNaverMarker(x,y){
-        var marker = new naver.maps.Marker({
-            position: new naver.maps.LatLng(y, x),
-            map: map
+          //길찾기 API 호출
+          searchPubTransPathAJAX();
+          function callMapObjApiAJAX(mabObj) {
+            var xhr = new XMLHttpRequest();
+            //ODsay apiKey 입력
+            var url = "https://api.odsay.com/v1/api/loadLane?mapObject=0:0@" + mabObj + "&apiKey=nnsDQB1AWhpETO3HmMdDAw";
+            xhr.open("GET", url, true);
+            xhr.send();
+            xhr.onreadystatechange = function () {
+              if (xhr.readyState == 4 && xhr.status == 200) {
+                var resultJsonData = JSON.parse(xhr.responseText);
+                drawNaverMarker(sx, sy);					// 출발지 마커 표시
+                drawNaverMarker(ex, ey);					// 도착지 마커 표시
+                drawNaverPolyLine(resultJsonData);		// 노선그래픽데이터 지도위 표시
+                // boundary 데이터가 있을경우, 해당 boundary로 지도이동
+                if (resultJsonData.result.boundary) {
+                  var boundary = new naver.maps.LatLngBounds(
+                    new naver.maps.LatLng(resultJsonData.result.boundary.top, resultJsonData.result.boundary.left),
+                    new naver.maps.LatLng(resultJsonData.result.boundary.bottom, resultJsonData.result.boundary.right)
+                  );
+                  map.panToBounds(boundary);
+                }
+              }
+            }
+          }
+          // 지도위 마커 표시해주는 함수
+          function drawNaverMarker(x, y) {
+            var marker = new naver.maps.Marker({
+              position: new naver.maps.LatLng(y, x),
+              map: map
+            });
+          }
+          // 노선그래픽 데이터를 이용하여 지도위 폴리라인 그려주는 함수
+          function drawNaverPolyLine(data) {
+            var lineArray;
+            for (var i = 0; i < data.result.lane.length; i++) {
+              for (var j = 0; j < data.result.lane[i].section.length; j++) {
+                lineArray = null;
+                lineArray = new Array();
+                for (var k = 0; k < data.result.lane[i].section[j].graphPos.length; k++) {
+                  lineArray.push(new naver.maps.LatLng(data.result.lane[i].section[j].graphPos[k].y, data.result.lane[i].section[j].graphPos[k].x));
+                }
+                //지하철결과의 경우 노선에 따른 라인색상 지정하는 부분 (1,2호선의 경우만 예로 들음)
+                if (data.result.lane[i].type == 1) {
+                  var polyline = new naver.maps.Polyline({
+                    map: map,
+                    path: lineArray,
+                    strokeWeight: 3,
+                    strokeColor: '#003499'
+                  });
+                } else if (data.result.lane[i].type == 2) {
+                  var polyline = new naver.maps.Polyline({
+                    map: map,
+                    path: lineArray,
+                    strokeWeight: 3,
+                    strokeColor: '#37b42d'
+                  });
+                } else {
+                  var polyline = new naver.maps.Polyline({
+                    map: map,
+                    path: lineArray,
+                    strokeWeight: 3
+                  });
+                }
+              }
+            }
+          }
         });
-      }
-
-      // 노선그래픽 데이터를 이용하여 지도위 폴리라인 그려주는 함수
-      function drawNaverPolyLine(data){
-        var lineArray;
-
-        for(var i = 0 ; i < data.result.lane.length; i++){
-          for(var j=0 ; j <data.result.lane[i].section.length; j++){
-            lineArray = null;
-            lineArray = new Array();
-            for(var k=0 ; k < data.result.lane[i].section[j].graphPos.length; k++){
-              lineArray.push(new naver.maps.LatLng(data.result.lane[i].section[j].graphPos[k].y, data.result.lane[i].section[j].graphPos[k].x));
-            }
-
-          //지하철결과의 경우 노선에 따른 라인색상 지정하는 부분 (1,2호선의 경우만 예로 들음)
-            if(data.result.lane[i].type == 1){
-              var polyline = new naver.maps.Polyline({
-                  map: map,
-                  path: lineArray,
-                  strokeWeight: 3,
-                  strokeColor: '#003499'
-              });
-            }else if(data.result.lane[i].type == 2){
-              var polyline = new naver.maps.Polyline({
-                  map: map,
-                  path: lineArray,
-                  strokeWeight: 3,
-                  strokeColor: '#37b42d'
-              });
-            }else{
-              var polyline = new naver.maps.Polyline({
-                  map: map,
-                  path: lineArray,
-                  strokeWeight: 3
-              });
-            }
-          }
-        }
-      }
-      });
       });
     }
   </script>
   <script> //값 계산
     $('button-calculate').click(function () {
-
     })
-
     function semester() {
       var target = document.getElementById("semester").value;
       var input = 0
-
       var since, until, salary, dish, everest, earth
-
       // 임시값 지정
       var time = 2
       var distance = 30000
-      var costs = 100000
-
+      var pay = 100000
       function sum(sem) {
         since = sem * time * 150
         until = (8 - sem) * time * 150
         salary = since * 8590
-        dish = Math.floor((costs * 150) / 6000)
-        everest = Math.floor((distance * 2) / 8846)
-        earth = ((distance * 2) / 40075000).toFixed(3)
+        dish = Math.floor((sem * pay * 150) / 6000)
+        everest = Math.floor((sem * distance * 2) / 8846)
+        earth = ((sem * distance * 2) / 40075000).toFixed(3)
       }
-
       if (target == 'sem-1-1') {
         input = 1
         sum(input)
@@ -434,7 +396,6 @@
         input = 8
         sum(input)
       }
-
       document.getElementById("since").innerHTML = since
       document.getElementById("until").innerHTML = until
       document.getElementById("salary").innerHTML = salary
@@ -442,12 +403,9 @@
       document.getElementById("everest").innerHTML = everest
       document.getElementById("earth").innerHTML = earth
     }
-
-
     function getOffSet() {
       var _offset = 450;
       var windowHeight = window.innerHeight;
-
       if (windowHeight > 500) {
         _offset = 400;
       }
@@ -457,25 +415,21 @@
       if (windowHeight > 830) {
         _offset = 210;
       }
-
       return _offset;
     }
-
     function setParallaxPosition($doc, multiplier, $object) {
       var offset = getOffSet();
       var from_top = $doc.scrollTop(),
         bg_css = 'center ' + (multiplier * from_top - offset) + 'px';
       $object.css({ "background-position": bg_css });
     }
-
     // Parallax function
-    // Adapted based on https://codepen.io/roborich/pen/wpAsm
+    // Adapted based on https://codepen.io/roborich/pen/wpAsm        
     var background_image_parallax = function ($object, multiplier, forceSet) {
       multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
       multiplier = 1 - multiplier;
       var $doc = $(document);
       // $object.css({"background-attatchment" : "fixed"});
-
       if (forceSet) {
         setParallaxPosition($doc, multiplier, $object);
       } else {
@@ -484,7 +438,6 @@
         });
       }
     };
-
     var background_image_parallax_2 = function ($object, multiplier) {
       multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
       multiplier = 1 - multiplier;
@@ -494,23 +447,18 @@
         var firstTop = $object.offset().top,
           pos = $(window).scrollTop(),
           yPos = Math.round((multiplier * (firstTop - pos)) - 186);
-
         var bg_css = 'center ' + yPos + 'px';
-
         $object.css({ "background-position": bg_css });
       });
     };
-
     $(function () {
       // Hero Section - Background Parallax
       background_image_parallax($(".tm-parallax"), 0.30, false);
       background_image_parallax_2($("#contact"), 0.80)
-
       // Handle window resize
       window.addEventListener('resize', function () {
         background_image_parallax($(".tm-parallax"), 0.30, true);
       }, true);
-
       // Detect window scroll and update navbar
       $(window).scroll(function (e) {
         if ($(document).scrollTop() > 120) {
@@ -519,15 +467,12 @@
           $('.tm-navbar').removeClass("scroll");
         }
       });
-
-      // Close mobile menu after click
+      // Close mobile menu after click 
       $('#tmNav a').on('click', function () {
         $('.navbar-collapse').removeClass('show');
       })
-
       // Scroll to corresponding section with animation
       $('#tmNav').singlePageNav();
-
       // Add smooth scrolling to all links
       // https://www.w3schools.com/howto/howto_css_smooth_scroll.asp
       $(".button1").on('click', function (event) {
@@ -535,20 +480,17 @@
           scrollTop: $("#contact").offset().top
         }, 400);
       });
-
       $(".button2").on('click', function (event) {
         $('html, body').animate({
-          scrollTop: $("#result").offset().top-50
+          scrollTop: $("#result").offset().top-10
         }, 400);
       });
-
       // Pop up
       $('.tm-gallery').magnificPopup({
         delegate: 'a',
         type: 'image',
         gallery: { enabled: true }
       });
-
       // Gallery
       $('.tm-gallery').slick({
         dots: true,
@@ -584,10 +526,8 @@
               slidesToScroll: 1
             }
           }]
-       });
+      });
     });
   </script>
-
 </body>
-
 </html>
