@@ -38,7 +38,8 @@ a:focus {
 }
 
 .btn:hover {
-  background-color: #ced4da;
+  color:darkgrey !important;
+  background-color: white;
 }
 
 .tm-section-pad-top {
@@ -190,7 +191,7 @@ a:focus {
 }
 
 .tm-hero-title {
-  font-size: 2rem;
+  font-size: 40px;
   text-shadow: 2px 2px 2px #333;
 }
 
@@ -218,16 +219,17 @@ a:focus {
 
 .tm-down-arrow {
   font-size:15px;
-  color: white;
+  color: white !important; 
   border: 2px none white;
   border-radius: 3%;
   padding: 10px 22px 8px;
   transition: all 0.3s ease;
+  background:transparent;
 }
 
 .tm-down-arrow:hover,
 .tm-down-arrow:focus {
-  color: grey;
+  color: darkgrey !important;
   background: white;
 }
 
@@ -346,7 +348,8 @@ select::-ms-expand {
     "question-grade question-grade question-grade input-grade input-grade";
 }
 
-.input-home { grid-area: input-home; }
+.input-home { 
+  grid-area: input-home; }
 
 .question-grade { grid-area: question-grade; }
 
@@ -361,6 +364,35 @@ select::-ms-expand {
 .question-field{
   font-size: 35px;
   text-shadow: 2px 2px 2px #333;
+}
+
+
+.button-address{
+  width:100px;
+  height:auto;
+  background-color: darkgrey;
+  border: none;
+  color:#fff;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px;
+  cursor: pointer;
+}
+
+#home-address,
+#school-address{
+  width: 100%; 
+  height: auto; 
+  line-height : normal; 
+  padding: .8em .5em;
+  font-family: inherit; 
+  border: 1px solid #999; 
+  border-radius: 0; 
+  outline-style: none;
+  -webkit-appearance: none; 
+  -moz-appearance: none; appearance: none;
 }
 
 
@@ -478,13 +510,13 @@ iframe{
 
 .answer-field { 
   grid-area: answer-field; 
-  font-size:35px;
+  font-size:30px;
   text-shadow: 2px 2px 2px #333;
 }
 
 .list-answer-field { 
   grid-area: list-answer-field;
-  font-size:35px;
+  font-size:30px;
   text-shadow: 2px 2px 2px #333;
   text-align : center;
 }
@@ -492,7 +524,7 @@ iframe{
 .detail-answer-field {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px 30px;
+  gap: 20px 20px;
   grid-template-areas:
     "salary-field dish-field everest-field earth-field";
   grid-area: detail-answer-field;
